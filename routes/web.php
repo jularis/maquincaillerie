@@ -18,6 +18,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DeliveryAddressController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -49,6 +50,17 @@ Route::middleware('guest')->group(function () {
     Route::post('/inscription', [AuthController::class, 'register']);
 });
 Route::post('/deconnexion', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Compte utilisateur
+Route::middleware('auth')->group(function () {
+    Route::get('/compte/adresses', [DeliveryAddressController::class, 'index'])->name('addresses.index');
+    Route::get('/compte/adresses/ajouter', [DeliveryAddressController::class, 'create'])->name('addresses.create');
+    Route::post('/compte/adresses', [DeliveryAddressController::class, 'store'])->name('addresses.store');
+    Route::get('/compte/adresses/{address}/modifier', [DeliveryAddressController::class, 'edit'])->name('addresses.edit');
+    Route::put('/compte/adresses/{address}', [DeliveryAddressController::class, 'update'])->name('addresses.update');
+    Route::delete('/compte/adresses/{address}', [DeliveryAddressController::class, 'destroy'])->name('addresses.destroy');
+    Route::post('/compte/adresses/{address}/defaut', [DeliveryAddressController::class, 'setDefault'])->name('addresses.setDefault');
+});
 
 
 Route::group(['prefix' => 'admin'], function () {
