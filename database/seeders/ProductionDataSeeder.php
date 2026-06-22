@@ -41,15 +41,12 @@ class ProductionDataSeeder extends Seeder
     private function createCategories(): array
     {
         $defs = [
-            ['name' => 'Kits Solaires',           'slug' => 'kits-solaires',     'icon' => '⚡',  'order' => 1],
-            ['name' => 'Panneaux Solaires',       'slug' => 'panneaux-solaires', 'icon' => '☀️', 'order' => 2],
-            ['name' => 'Régulateurs de Charge',   'slug' => 'regulateurs',       'icon' => '🔧', 'order' => 3],
-            ['name' => 'Onduleurs Solaires',      'slug' => 'onduleurs',         'icon' => '⚙️', 'order' => 4],
-            ['name' => 'Batteries Solaires',      'slug' => 'batteries',         'icon' => '🔋', 'order' => 5],
-            ['name' => 'Éclairages',              'slug' => 'eclairages',        'icon' => '💡', 'order' => 6],
-            ['name' => 'Accessoires de Pose',     'slug' => 'accessoires',       'icon' => '🛠️','order' => 7],
-            ['name' => 'Chauffe-eau Solaires',    'slug' => 'chauffe-eau',       'icon' => '🌡️','order' => 8],
-            ['name' => 'Récepteurs Solaires',     'slug' => 'recepteurs',        'icon' => '📺', 'order' => 9],
+            ['name' => 'Kits Solaires',      'slug' => 'kits-solaires',     'icon' => '⚡',  'order' => 1],
+            ['name' => 'Panneaux Solaires',  'slug' => 'panneaux-solaires', 'icon' => '☀️', 'order' => 2],
+            ['name' => 'Batteries Solaires', 'slug' => 'batteries',         'icon' => '🔋', 'order' => 3],
+            ['name' => 'Onduleurs Solaires', 'slug' => 'onduleurs',         'icon' => '⚙️', 'order' => 4],
+            ['name' => 'Accessoires',        'slug' => 'accessoires',       'icon' => '🛠️','order' => 5],
+            ['name' => 'Bornes de Recharge', 'slug' => 'bornes-recharge',   'icon' => '🔌', 'order' => 6],
         ];
 
         $map = [];
@@ -173,15 +170,12 @@ class ProductionDataSeeder extends Seeder
     private function productList(array $cats, array $brands): array
     {
         return array_merge(
+            $this->kits($cats, $brands),
             $this->panneaux($cats, $brands),
             $this->batteries($cats, $brands),
             $this->onduleurs($cats, $brands),
-            $this->regulateurs($cats, $brands),
-            $this->kits($cats, $brands),
-            $this->eclairages($cats, $brands),
             $this->accessoires($cats, $brands),
-            $this->chauffeEau($cats, $brands),
-            $this->recepteurs($cats, $brands),
+            $this->bornesRecharge($cats, $brands),
         );
     }
 
@@ -567,12 +561,10 @@ class ProductionDataSeeder extends Seeder
     }
 
     // =========================================================================
-    // RÃ‰GULATEURS DE CHARGE
+    // (méthode régulateurs supprimée — catégorie retirée)
     // =========================================================================
-    private function regulateurs(array $cats, array $brands): array
+    private function _obsoleteRegulateursDontCall(): array
     {
-        $c = $cats['regulateurs'];
-        $imgUrl = 'https://maquincaillerie-solaire.com/wp-content/uploads/2022/10/WhatsApp-Image-2024-09-16-a-14.01.40_5a4a4090.jpg';
         return [
             [
                 'category_id'       => $c,
@@ -1211,6 +1203,76 @@ class ProductionDataSeeder extends Seeder
                 'featured'          => false,
                 'specs'             => ['DiamÃ¨tre' => '16 pouces', 'Alimentation' => 'Solaire + 220V', 'Port USB' => 'Oui'],
                 'image_url'         => $img,
+            ],
+        ];
+    }
+
+    // =========================================================================
+    // BORNES DE RECHARGE
+    // =========================================================================
+    private function bornesRecharge(array $cats, array $brands): array
+    {
+        $c = $cats['bornes-recharge'];
+        return [
+            [
+                'category_id'       => $c,
+                'brand_id'          => null,
+                'name'              => 'Borne de recharge AC 7,4 kW monophasée',
+                'slug'              => 'borne-recharge-ac-7-4kw-mono',
+                'sku'               => 'BRN-AC-7K4-MONO',
+                'short_description' => 'Borne de recharge AC 7,4 kW monophasée pour véhicule électrique, compatible toutes marques.',
+                'description'       => 'Borne de recharge AC 7,4 kW monophasée. Compatible avec tous les véhicules électriques et hybrides rechargeables. Prise Type 2, câble de 5 m inclus. Idéale pour usage résidentiel.',
+                'price'             => 280000,
+                'warranty'          => '2 ans',
+                'stock'             => 8,
+                'featured'          => true,
+                'specs'             => ['Puissance' => '7,4 kW', 'Phase' => 'Monophasé', 'Prise' => 'Type 2', 'Câble' => '5 m', 'Protection' => 'IP54'],
+                'image_url'         => 'https://maquincaillerie-solaire.com/wp-content/uploads/2022/01/borne-recharge.jpg',
+            ],
+            [
+                'category_id'       => $c,
+                'brand_id'          => null,
+                'name'              => 'Borne de recharge AC 22 kW triphasée',
+                'slug'              => 'borne-recharge-ac-22kw-tri',
+                'sku'               => 'BRN-AC-22K-TRI',
+                'short_description' => 'Borne de recharge AC 22 kW triphasée pour charge rapide de véhicules électriques.',
+                'description'       => 'Borne de recharge AC 22 kW triphasée. Charge jusqu\'à 3 fois plus vite qu\'une borne 7,4 kW. Compatible véhicules acceptant la charge triphasée. Prise Type 2 universelle.',
+                'price'             => 480000,
+                'warranty'          => '2 ans',
+                'stock'             => 5,
+                'featured'          => true,
+                'specs'             => ['Puissance' => '22 kW', 'Phase' => 'Triphasé', 'Prise' => 'Type 2', 'Protection' => 'IP54'],
+                'image_url'         => 'https://maquincaillerie-solaire.com/wp-content/uploads/2022/01/borne-recharge-22kw.jpg',
+            ],
+            [
+                'category_id'       => $c,
+                'brand_id'          => null,
+                'name'              => 'Borne de recharge DC 50 kW rapide',
+                'slug'              => 'borne-recharge-dc-50kw-rapide',
+                'sku'               => 'BRN-DC-50K',
+                'short_description' => 'Borne de recharge DC 50 kW ultra-rapide, pour stations de recharge publiques et commerciales.',
+                'description'       => 'Borne de recharge DC 50 kW rapide. Charge en courant continu pour une recharge ultra-rapide (20 à 80% en 30 min). Idéale pour stations publiques, parkings commerciaux et flottes professionnelles.',
+                'price'             => 3500000,
+                'warranty'          => '2 ans',
+                'stock'             => 2,
+                'featured'          => false,
+                'specs'             => ['Puissance' => '50 kW', 'Type' => 'DC rapide', 'Prises' => 'CCS + CHAdeMO', 'Protection' => 'IP55'],
+                'image_url'         => 'https://maquincaillerie-solaire.com/wp-content/uploads/2022/01/borne-dc-50kw.jpg',
+            ],
+            [
+                'category_id'       => $c,
+                'brand_id'          => null,
+                'name'              => 'Câble recharge Type 2 vers Type 2 — 7 m',
+                'slug'              => 'cable-recharge-type2-type2-7m',
+                'sku'               => 'BRN-CABLE-T2-7M',
+                'short_description' => 'Câble de recharge Type 2 vers Type 2, 7 m, 32A, pour bornes et véhicules électriques.',
+                'description'       => 'Câble de recharge véhicule électrique Type 2 vers Type 2. Longueur 7 m, intensité max 32A. Compatible avec toutes les bornes de recharge de type 2 et les véhicules acceptant la prise Type 2.',
+                'price'             => 45000,
+                'warranty'          => '1 an',
+                'stock'             => 20,
+                'featured'          => false,
+                'specs'             => ['Connecteurs' => 'Type 2 / Type 2', 'Longueur' => '7 m', 'Intensité' => '32 A'],
+                'image_url'         => 'https://maquincaillerie-solaire.com/wp-content/uploads/2022/01/cable-type2.jpg',
             ],
         ];
     }

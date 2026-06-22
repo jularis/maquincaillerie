@@ -9,7 +9,8 @@
     <meta name="description" content="@yield('meta_description', 'Spécialiste en panneaux solaires, onduleurs, batteries et kits solaires depuis 2011. 50 000+ clients satisfaits.')">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <style>
       [x-cloak] { display: none !important; }
@@ -20,7 +21,7 @@
 <body class="bg-white">
 
 {{-- ===== TOP CONTACT BAR ===== --}}
-<div class="bg-gray-50 border-b border-gray-200 text-xs text-gray-600">
+<div class="bg-gray-50 border-b border-gray-200 text-xs text-gray-600 relative z-[200]">
     <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-9 gap-4">
         <div class="hidden md:flex items-center gap-5">
             <a href="tel:+2252735958998" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
@@ -37,10 +38,47 @@
             </a>
         </div>
         <div class="flex items-center gap-4 ml-auto">
-            <a href="#" class="flex items-center gap-1 hover:text-navy transition-colors">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Prendre RDV
-            </a>
+            {{-- Demande de devis --}}
+            <div class="relative" x-data="{ devisOpen: false }" @click.outside="devisOpen = false">
+                <button @click="devisOpen = !devisOpen"
+                        class="flex items-center gap-1 font-semibold text-orange hover:text-orange-dark transition-colors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Demande de devis
+                    <svg class="w-3 h-3 transition-transform" :class="devisOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+
+                <div x-show="devisOpen" x-cloak
+                     x-transition:enter="transition ease-out duration-150"
+                     x-transition:enter-start="opacity-0 -translate-y-1"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     class="absolute left-0 top-full mt-2 w-52 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50" style="z-index: 2000;">
+
+                    <a href="https://wa.me/2250769622644?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20une%20installation%20solaire."
+                       target="_blank"
+                       class="flex items-center gap-3 px-4 py-3 hover:bg-green-50 transition-colors group">
+                        <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </span>
+                        <div>
+                            <div class="text-sm font-semibold text-gray-800 group-hover:text-green-600">WhatsApp</div>
+                            <div class="text-xs text-gray-400">Réponse rapide</div>
+                        </div>
+                    </a>
+
+                    <div class="border-t border-gray-100"></div>
+
+                    <a href="mailto:commerciale@cleanenergyservices.net?subject=Demande%20de%20devis%20installation%20solaire&body=Bonjour%2C%0A%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20une%20installation%20solaire.%0A%0AMerci."
+                       class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                        <span class="w-8 h-8 bg-navy rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </span>
+                        <div>
+                            <div class="text-sm font-semibold text-gray-800 group-hover:text-navy">Email</div>
+                            <div class="text-xs text-gray-400">Réponse sous 24h</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
             <a href="mailto:commerciale@cleanenergyservices.net" class="flex items-center gap-1 hover:text-navy transition-colors">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 commerciale@cleanenergyservices.net
@@ -155,7 +193,7 @@
 
                 {{-- Configurateur --}}
                 <div class="mega-menu relative">
-                    <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}"
+                    <a href="{{ route('configurateur') }}"
                        class="nav-link flex items-center gap-1.5 text-orange font-bold">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
                         Configurateur
@@ -237,7 +275,7 @@
         </div>
 
         <div class="p-4 space-y-1">
-            <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-bold text-orange bg-orange/5">
+            <a href="{{ route('configurateur') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-bold text-orange bg-orange/5">
                 ⚡ Configurateur
             </a>
             <a href="{{ route('products.index') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-bold text-red-600 bg-red-50">

@@ -27,7 +27,7 @@ module.exports = {
         solar: '#f59e0b',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
       },
       boxShadow: {
         'card': '0 2px 8px rgba(0,0,0,0.08)',

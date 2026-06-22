@@ -26,6 +26,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/produits', [ProductController::class, 'index'])->name('products.index');
 Route::get('/produits/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 
+// Configurateur
+Route::get('/configurateur', fn() => view('configurateur'))->name('configurateur');
+
 // Cart
 Route::get('/panier', [CartController::class, 'index'])->name('cart.index');
 Route::post('/panier/ajouter', [CartController::class, 'add'])->name('cart.add');

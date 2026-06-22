@@ -16,39 +16,9 @@
     <div class="max-w-screen-xl mx-auto px-4 pt-12 pb-8 relative">
 
         {{-- Title --}}
-        <div class="text-center mb-10">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-3">
-                Réalisez votre propre installation solaire<br class="hidden md:block">
-                avec ou sans stockage ☀️
-            </h1>
-            <p class="text-blue-200 text-lg font-medium">Experts photovoltaïque et stockage solaire depuis 2011</p>
-            <div class="inline-flex items-center gap-2 mt-3 bg-white/10 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold text-blue-100">
-                <span class="text-solar text-base">⭐</span> 50 000+ clients satisfaits
-            </div>
-        </div>
-
-        {{-- 3 configurator cards --}}
+{{-- 3 configurator cards --}}
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
 
-            {{-- Card 1: Configurateur simple --}}
-            <div class="bg-white rounded-2xl p-6 text-gray-800 shadow-xl flex flex-col">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                    </div>
-                    <div>
-                        <div class="font-bold text-navy">Configurateur</div>
-                        <div class="text-xs text-gray-500">Devis de kit solaire</div>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
-                    Vous débutez ? On s'occupe de tout. Recevez une offre gratuite et immédiate.
-                </p>
-                <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}"
-                   class="w-full text-center py-3 bg-navy text-white font-semibold rounded-xl hover:bg-navy-dark transition-colors text-sm">
-                    Devis gratuit →
-                </a>
-            </div>
 
             {{-- Card 2: Configurateur avancé --}}
             <div class="bg-orange rounded-2xl p-6 text-white shadow-xl flex flex-col">
@@ -64,7 +34,7 @@
                 <p class="text-sm text-orange-100 leading-relaxed mb-5 flex-1">
                     Devenez un expert du solaire ! Configurez votre kit sur mesure (marque, puissance, etc.) et recevez-le instantanément.
                 </p>
-                <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}"
+                <a href="{{ route('configurateur') }}"
                    class="w-full text-center py-3 bg-white text-orange font-semibold rounded-xl hover:bg-orange-50 transition-colors text-sm">
                     Configurer mon kit →
                 </a>
@@ -102,7 +72,7 @@
 
         {{-- Bottom links --}}
         <div class="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-blue-200">
-            <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}" class="flex items-center gap-1.5 hover:text-white transition-colors font-medium">
+            <a href="{{ route('configurateur') }}" class="flex items-center gap-1.5 hover:text-white transition-colors font-medium">
                 📦 Configurateur de kit solaire
             </a>
             <span class="text-blue-400">|</span>
@@ -179,6 +149,30 @@
 
         @php
         $catData = [
+            'kits-solaires' => [
+                'label' => 'KITS SOLAIRES',
+                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM9 22V12h6v10"/>',
+                'product_svg' => '
+                <svg viewBox="0 0 150 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
+                  <rect x="2" y="6" width="56" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
+                  <line x1="2" y1="18" x2="58" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="2" y1="30" x2="58" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="20" y1="6" x2="20" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="39" y1="6" x2="39" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <rect x="62" y="6" width="56" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
+                  <line x1="62" y1="18" x2="118" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="62" y1="30" x2="118" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="80" y1="6" x2="80" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="99" y1="6" x2="99" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <rect x="122" y="6" width="26" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
+                  <line x1="122" y1="18" x2="148" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <line x1="122" y1="30" x2="148" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                  <rect x="44" y="60" width="62" height="44" rx="6" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="52" y="68" width="46" height="20" rx="3" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.1)"/>
+                  <polyline points="56,78 62,70 68,78 74,70 80,78 86,70 92,78" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  <line x1="75" y1="42" x2="75" y2="60" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-dasharray="3 2"/>
+                </svg>',
+            ],
             'panneaux-solaires' => [
                 'label' => 'PANNEAUX SOLAIRES',
                 'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 12h18M3 17h18M7 3v18M12 3v18M17 3v18"/>',
@@ -196,8 +190,23 @@
                   <line x1="70" y1="98" x2="70" y2="104" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
                 </svg>',
             ],
+            'batteries' => [
+                'label' => 'BATTERIES SOLAIRES',
+                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 2h-2v2H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-4V2zm-1 8v4m-2-2h4"/>',
+                'product_svg' => '
+                <svg viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-16 h-28 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
+                  <rect x="20" y="2" width="40" height="8" rx="3" fill="rgba(255,255,255,0.7)"/>
+                  <rect x="4" y="10" width="72" height="116" rx="8" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
+                  <rect x="14" y="22" width="52" height="10" rx="3" fill="rgba(251,191,36,0.5)" stroke="#fbbf24" stroke-width="1"/>
+                  <rect x="14" y="38" width="52" height="10" rx="3" fill="rgba(251,191,36,0.35)" stroke="#fbbf24" stroke-width="1"/>
+                  <rect x="14" y="54" width="52" height="10" rx="3" fill="rgba(251,191,36,0.2)" stroke="rgba(251,191,36,0.5)" stroke-width="1"/>
+                  <line x1="34" y1="82" x2="34" y2="106" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="24" y1="94" x2="44" y2="94" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="54" y1="94" x2="66" y2="94" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>',
+            ],
             'onduleurs' => [
-                'label' => 'ONDULEURS',
+                'label' => 'ONDULEURS SOLAIRES',
                 'icon_svg' => '<rect x="3" y="6" width="18" height="12" rx="2" stroke-width="1.5"/><path stroke-linecap="round" stroke-width="1.5" d="M8 12h1l1.5-3 2 6 1.5-3H16"/>',
                 'product_svg' => '
                 <svg viewBox="0 0 90 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-20 h-28 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
@@ -213,34 +222,16 @@
                   <circle cx="65" cy="96" r="6" stroke="white" stroke-width="1.8"/>
                 </svg>',
             ],
-            'batteries' => [
-                'label' => 'BATTERIES',
-                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 2h-2v2H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-4V2zm-1 8v4m-2-2h4"/>',
+            'accessoires' => [
+                'label' => 'ACCESSOIRES',
+                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"/>',
                 'product_svg' => '
-                <svg viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-16 h-28 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <rect x="20" y="2" width="40" height="8" rx="3" fill="rgba(255,255,255,0.7)"/>
-                  <rect x="4" y="10" width="72" height="116" rx="8" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
-                  <rect x="14" y="22" width="52" height="10" rx="3" fill="rgba(251,191,36,0.5)" stroke="#fbbf24" stroke-width="1"/>
-                  <rect x="14" y="38" width="52" height="10" rx="3" fill="rgba(251,191,36,0.35)" stroke="#fbbf24" stroke-width="1"/>
-                  <rect x="14" y="54" width="52" height="10" rx="3" fill="rgba(251,191,36,0.2)" stroke="rgba(251,191,36,0.5)" stroke-width="1"/>
-                  <line x1="34" y1="82" x2="34" y2="106" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                  <line x1="24" y1="94" x2="44" y2="94" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                  <line x1="54" y1="94" x2="66" y2="94" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                </svg>',
-            ],
-            'systemes-fixation' => [
-                'label' => 'FIXATIONS',
-                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2v-5M16 3l5 5-9 9H7v-5l9-9z"/>',
-                'product_svg' => '
-                <svg viewBox="0 0 130 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <rect x="8" y="70" width="114" height="16" rx="4" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.05)"/>
-                  <rect x="20" y="14" width="14" height="58" rx="3" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.05)"/>
-                  <rect x="60" y="14" width="14" height="58" rx="3" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.05)"/>
-                  <rect x="100" y="14" width="14" height="58" rx="3" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.05)"/>
-                  <rect x="8" y="8" width="114" height="10" rx="3" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.12)"/>
-                  <circle cx="27" cy="82" r="4" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.2)"/>
-                  <circle cx="67" cy="82" r="4" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.2)"/>
-                  <circle cx="107" cy="82" r="4" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.2)"/>
+                <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
+                  <path d="M18 28 Q18 14 28 12 Q38 10 40 20 L42 22 L90 70 L92 72 Q102 74 104 82 Q106 92 96 94 Q86 96 82 88 L80 86 L32 38 L30 36 Q20 38 18 28Z" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.06)" stroke-linejoin="round"/>
+                  <circle cx="28" cy="22" r="6" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.15)"/>
+                  <circle cx="92" cy="86" r="6" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.15)"/>
+                  <line x1="100" y1="14" x2="38" y2="80" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="36" y1="80" x2="30" y2="90" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
                 </svg>',
             ],
             'bornes-recharge' => [
@@ -259,109 +250,10 @@
                   <line x1="22" y1="98" x2="58" y2="98" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
                 </svg>',
             ],
-            'kits-solaires' => [
-                'label' => 'KITS SOLAIRES',
-                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM9 22V12h6v10"/>',
-                'product_svg' => '
-                <svg viewBox="0 0 150 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <!-- 3 panneaux -->
-                  <rect x="2" y="6" width="56" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
-                  <line x1="2" y1="18" x2="58" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="2" y1="30" x2="58" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="20" y1="6" x2="20" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="39" y1="6" x2="39" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <rect x="62" y="6" width="56" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
-                  <line x1="62" y1="18" x2="118" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="62" y1="30" x2="118" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="80" y1="6" x2="80" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="99" y1="6" x2="99" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <rect x="122" y="6" width="26" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
-                  <line x1="122" y1="18" x2="148" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="122" y1="30" x2="148" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <!-- Onduleur en bas -->
-                  <rect x="44" y="60" width="62" height="44" rx="6" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
-                  <rect x="52" y="68" width="46" height="20" rx="3" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.1)"/>
-                  <polyline points="56,78 62,70 68,78 74,70 80,78 86,70 92,78" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                  <!-- Câble -->
-                  <line x1="75" y1="42" x2="75" y2="60" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-dasharray="3 2"/>
-                </svg>',
-            ],
-            'electricite' => [
-                'label' => 'COFFRETS DE PROTECTION',
-                'icon_svg' => '<rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><path stroke-linecap="round" stroke-width="1.5" d="M9 9h6M9 12h6M9 15h4"/>',
-                'product_svg' => '
-                <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-20 h-28 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <rect x="6" y="4" width="88" height="112" rx="6" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
-                  <line x1="50" y1="4" x2="50" y2="116" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
-                  <rect x="12" y="16" width="34" height="22" rx="3" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.06)"/>
-                  <rect x="54" y="16" width="34" height="22" rx="3" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.06)"/>
-                  <rect x="12" y="46" width="34" height="10" rx="2" fill="rgba(251,191,36,0.6)"/>
-                  <rect x="54" y="46" width="34" height="10" rx="2" fill="rgba(251,191,36,0.3)"/>
-                  <rect x="12" y="64" width="34" height="10" rx="2" fill="rgba(251,191,36,0.3)"/>
-                  <rect x="54" y="64" width="34" height="10" rx="2" fill="rgba(251,191,36,0.6)"/>
-                  <rect x="12" y="82" width="76" height="10" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-                  <circle cx="32" cy="27" r="6" stroke="#fbbf24" stroke-width="1.5"/>
-                  <circle cx="68" cy="27" r="6" stroke="white" stroke-width="1.5"/>
-                </svg>',
-            ],
-            'domotique-outillage' => [
-                'label' => 'DOMOTIQUES',
-                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>',
-                'product_svg' => '
-                <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <rect x="30" y="4" width="60" height="90" rx="8" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
-                  <rect x="38" y="14" width="44" height="52" rx="4" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.08)"/>
-                  <circle cx="60" cy="40" r="14" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.12)"/>
-                  <path d="M60 30v10l7 7" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                  <circle cx="60" cy="40" r="3" fill="#fbbf24"/>
-                  <line x1="38" y1="76" x2="82" y2="76" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-                  <line x1="38" y1="83" x2="82" y2="83" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-                  <rect x="50" y="92" width="20" height="6" rx="3" fill="rgba(255,255,255,0.5)"/>
-                  <path d="M20 60 Q10 60 10 80 Q10 100 30 100 L60 100" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" fill="none" stroke-dasharray="4 3"/>
-                  <path d="M100 60 Q110 60 110 80 Q110 100 90 100 L60 100" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" fill="none" stroke-dasharray="4 3"/>
-                </svg>',
-            ],
-        ];
-        $extraCats = [
-            [
-                'label' => 'OPTIMISEURS SOLAIRES',
-                'href' => route('products.index'),
-                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>',
-                'product_svg' => '
-                <svg viewBox="0 0 130 90" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <rect x="20" y="20" width="90" height="56" rx="6" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
-                  <rect x="28" y="28" width="52" height="34" rx="3" stroke="#fbbf24" stroke-width="1.5" fill="rgba(251,191,36,0.08)"/>
-                  <path d="M38 45 L46 34 L54 45 L62 34 L70 45" stroke="#fbbf24" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="6" y1="48" x2="20" y2="48" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="110" y1="48" x2="124" y2="48" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="6" cy="48" r="3.5" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.1)"/>
-                  <circle cx="124" cy="48" r="3.5" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.1)"/>
-                  <rect x="86" y="34" width="18" height="26" rx="2" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="1"/>
-                  <line x1="88" y1="42" x2="102" y2="42" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="88" y1="48" x2="102" y2="48" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                  <line x1="88" y1="54" x2="99" y2="54" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-                </svg>',
-            ],
-            [
-                'label' => 'OUTILLAGES',
-                'href' => route('products.index'),
-                'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.7 6.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-2-2a1 1 0 010-1.4l8-8a1 1 0 011.4 0l2 2zM5 17l-3 3 3-3zM19 5l-7 7"/>',
-                'product_svg' => '
-                <svg viewBox="0 0 130 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
-                  <!-- Clé plate -->
-                  <path d="M18 28 Q18 14 28 12 Q38 10 40 20 L42 22 L90 70 L92 72 Q102 74 104 82 Q106 92 96 94 Q86 96 82 88 L80 86 L32 38 L30 36 Q20 38 18 28Z" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.06)" stroke-linejoin="round"/>
-                  <circle cx="28" cy="22" r="6" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.15)"/>
-                  <circle cx="92" cy="86" r="6" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.15)"/>
-                  <!-- Tournevis -->
-                  <line x1="100" y1="14" x2="38" y2="80" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round"/>
-                  <rect x="96" y="8" width="14" height="10" rx="2" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="rgba(255,255,255,0.08)" transform="rotate(-45 103 13)"/>
-                  <line x1="36" y1="80" x2="30" y2="90" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
-                </svg>',
-            ],
         ];
         @endphp
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             @foreach($categories as $category)
             @php $d = $catData[$category->slug] ?? null; @endphp
             @if($d)
@@ -380,23 +272,6 @@
                 <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-yellow-400 transition-colors duration-300 pointer-events-none"></div>
             </a>
             @endif
-            @endforeach
-
-            @foreach($extraCats as $ec)
-            <a href="{{ $ec['href'] }}"
-               class="group relative flex flex-col overflow-hidden rounded-2xl cursor-pointer"
-               style="background: linear-gradient(160deg, #0f2d5e 0%, #071a3e 60%, #0a2347 100%); min-height: 220px;">
-                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                     style="background: radial-gradient(circle at 50% 20%, rgba(251,191,36,0.14) 0%, transparent 65%)"></div>
-                <div class="relative z-10 flex flex-col items-center pt-5 px-3">
-                    <p class="text-white font-black text-[10px] uppercase tracking-widest text-center leading-tight mb-2">{{ $ec['label'] }}</p>
-                    <svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $ec['icon_svg'] !!}</svg>
-                </div>
-                <div class="relative z-10 flex-1 flex items-center justify-center px-3 pb-3">
-                    {!! $ec['product_svg'] !!}
-                </div>
-                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-yellow-400 transition-colors duration-300 pointer-events-none"></div>
-            </a>
             @endforeach
         </div>
     </div>
