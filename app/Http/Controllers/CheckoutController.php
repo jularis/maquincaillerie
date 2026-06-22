@@ -22,7 +22,11 @@ class CheckoutController extends Controller
         $shipping = $subtotal >= 350000 ? 0 : 6500;
         $total    = $subtotal + $tax + $shipping;
 
-        return view('checkout.index', compact('items', 'subtotal', 'tax', 'shipping', 'total'));
+        $savedAddresses = auth()->check()
+            ? auth()->user()->deliveryAddresses()->orderByDesc('is_default')->orderBy('created_at')->get()
+            : collect();
+
+        return view('checkout.index', compact('items', 'subtotal', 'tax', 'shipping', 'total', 'savedAddresses'));
     }
 
     public function store(\Illuminate\Http\Request $request)
@@ -34,7 +38,8 @@ class CheckoutController extends Controller
             'phone'          => 'nullable|string|max:20',
             'address'        => 'required|string|max:255',
             'city'           => 'required|string|max:100',
-            'postal_code'    => 'required|string|max:10',
+            'postal_code'    => 'nullable|string|max:20',
+            'country'        => 'nullable|string|max:3',
             'payment_method' => 'required|in:cod,card,transfer,check',
         ]);
 
@@ -66,7 +71,7 @@ class CheckoutController extends Controller
             'address'        => $request->address,
             'city'           => $request->city,
             'postal_code'    => $request->postal_code,
-            'country'        => 'FR',
+            'country'        => $request->country ?? 'CI',
             'payment_method' => $request->payment_method ?? 'cod',
             'payment_status' => 'pending',
             'items'          => $cartItems->map(fn($i) => [
