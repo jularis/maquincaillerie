@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth; }
+  body { @apply font-sans text-gray-800 bg-white; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange text-white font-semibold rounded-lg hover:bg-orange-dark transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-orange/40;
+  }
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy-dark transition-colors duration-150;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-navy text-navy font-semibold rounded-lg hover:bg-navy hover:text-white transition-colors duration-150;
+  }
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-navy transition-colors duration-150;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-card border border-gray-100 overflow-hidden hover:shadow-card-hover transition-shadow duration-200;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy/30 focus:border-navy outline-none transition text-sm;
+  }
+  .section-title {
+    @apply text-2xl lg:text-3xl font-bold text-navy;
+  }
+  .section-subtitle {
+    @apply text-gray-500 mt-2 text-base;
+  }
+  .nav-link {
+    @apply px-5 py-4 text-sm font-semibold text-gray-700 hover:text-navy border-b-2 border-transparent hover:border-navy transition-colors whitespace-nowrap;
+  }
+  .nav-link-active {
+    @apply px-5 py-4 text-sm font-semibold text-navy border-b-2 border-navy whitespace-nowrap;
+  }
+}
