@@ -3,15 +3,21 @@
 @section('title', 'Mes adresses de livraison — Ma Quincaillerie Solaire')
 
 @section('content')
-<section class="py-12 bg-gray-50 min-h-screen">
-    <div class="max-w-screen-lg mx-auto px-4">
+<section class="py-10 bg-gray-50 min-h-screen">
+    <div class="max-w-screen-xl mx-auto px-4">
+
+        <div class="mb-6">
+            <h1 class="text-2xl font-extrabold text-navy">Mes adresses de livraison</h1>
+            <p class="text-gray-400 text-sm mt-1">Gérez vos lieux de livraison</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+        @include('account._sidebar')
+        <main class="flex-1">
 
         {{-- En-tête --}}
-        <div class="flex items-center justify-between mb-8">
-            <div>
-                <h1 class="text-2xl font-extrabold text-navy">Mes adresses de livraison</h1>
-                <p class="text-gray-500 text-sm mt-1">Connecté en tant que <span class="font-semibold text-navy">{{ auth()->user()->name }}</span></p>
-            </div>
+        <div class="flex items-center justify-between mb-6">
+            <div></div>
             <a href="{{ route('addresses.create') }}"
                class="inline-flex items-center gap-2 bg-navy text-white font-semibold px-4 py-2.5 rounded-xl hover:bg-navy-dark transition-colors text-sm">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
@@ -95,9 +101,7 @@
         </div>
         @endif
 
-        {{-- Retour accueil --}}
-        <div class="mt-8 text-center">
-            <a href="{{ route('home') }}" class="text-sm text-gray-400 hover:text-navy transition-colors">← Retour à l'accueil</a>
+        </main>
         </div>
     </div>
 </section>

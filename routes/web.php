@@ -19,6 +19,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeliveryAddressController;
+use App\Http\Controllers\AccountController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -53,6 +54,12 @@ Route::post('/deconnexion', [AuthController::class, 'logout'])->name('logout')->
 
 // Compte utilisateur
 Route::middleware('auth')->group(function () {
+    Route::get('/compte',                      [AccountController::class, 'dashboard'])->name('account.dashboard');
+    Route::get('/compte/commandes',            [AccountController::class, 'orders'])->name('account.orders');
+    Route::get('/compte/profil',               [AccountController::class, 'profile'])->name('account.profile');
+    Route::put('/compte/profil',               [AccountController::class, 'updateProfile'])->name('account.profile.update');
+    Route::put('/compte/profil/mot-de-passe',  [AccountController::class, 'updatePassword'])->name('account.password.update');
+
     Route::get('/compte/adresses', [DeliveryAddressController::class, 'index'])->name('addresses.index');
     Route::get('/compte/adresses/ajouter', [DeliveryAddressController::class, 'create'])->name('addresses.create');
     Route::post('/compte/adresses', [DeliveryAddressController::class, 'store'])->name('addresses.store');
