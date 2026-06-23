@@ -49,8 +49,8 @@
 
         @if($order->payment_method === 'cod')
         <div class="bg-amber-50 rounded-xl p-4 mb-8 text-sm text-amber-700 border border-amber-200">
-            🏪 Votre commande est confirmée. Vous paierez <strong>{{ fcfa($order->total) }}</strong> en espèces en magasin.<br>
-            Livraison sous <strong>24 à 48 heures ouvrées</strong>.
+            🏪 Votre commande a été bien enregistrée. Vous paierez <strong>{{ fcfa($order->total) }}</strong> en espèces en magasin.<br>
+            Livraison sous <strong>24 heures ouvrées</strong>.
         </div>
         @elseif($order->payment_method === 'transfer')
         <div class="bg-blue-50 rounded-xl p-4 mb-8 text-sm text-blue-700 border border-blue-200">
@@ -79,7 +79,7 @@
         @else
         <div class="bg-green-50 rounded-xl p-4 mb-8 text-sm text-green-700">
             ✅ Un email de confirmation a été envoyé à <strong>{{ $order->email }}</strong>.<br>
-            Votre commande sera expédiée sous <strong>24 à 48 heures ouvrées</strong>.
+            Votre commande sera expédiée sous <strong>24 heures ouvrées</strong>.
         </div>
         @endif
 

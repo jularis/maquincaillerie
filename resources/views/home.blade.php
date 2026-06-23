@@ -440,7 +440,7 @@
                 ['num'=>2, 'title'=>'Choisissez vos panneaux solaires', 'desc'=>'Avec le configurateur avancé, vous avez le choix de vos panneaux solaires. Sélectionnez le panneau qui vous convient en fonction de son prix et de son rendement.', 'icon'=>'☀️'],
                 ['num'=>3, 'title'=>'Sélectionnez vos onduleurs', 'desc'=>'Le configurateur va vous proposer uniquement les onduleurs compatibles avec la puissance des panneaux et la technologie choisie (avec ou sans batterie, mono ou triphasé).', 'icon'=>'⚡'],
                 ['num'=>4, 'title'=>'Ajoutez des batteries solaires', 'desc'=>'Si vous avez activé le stockage, vous allez pouvoir sélectionner votre batterie. Le configurateur vous propose uniquement des batteries compatibles avec l\'onduleur choisi.', 'icon'=>'🔋'],
-                ['num'=>5, 'title'=>'Profitez de nos installateurs', 'desc'=>'Grâce à nos partenaires certifiés RGE, nous vous proposons l\'installation de notre kit solaire. ALMA SOLAR est le tiers de confiance. Aucun montant supplémentaire ne peut être demandé.', 'icon'=>'👷'],
+                ['num'=>5, 'title'=>'Profitez de nos installateurs', 'desc'=>'Grâce à nos partenaires certifiés RGE, nous vous proposons l\'installation de notre kit solaire. Aucun montant supplémentaire ne peut être demandé.', 'icon'=>'👷'],
             ];
             @endphp
 
@@ -460,7 +460,7 @@
 
         <div class="text-center mt-10">
             <a href="{{ route('configurateur') }}" class="btn-primary text-base px-10 py-4">
-                🔆 Simulez votre installation photovoltaïque
+                🔆 Sélectionnez un kit solaire
             </a>
         </div>
     </div>
@@ -642,7 +642,7 @@
                 <div class="border-t border-white/20 pt-5">
                     <div class="text-xs text-blue-300 mb-3 font-semibold uppercase tracking-wider">Nos certifications</div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">✅ Installateurs RGE</span>
+                        <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">✅ Installateurs certifiés</span>
                         <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">🏆 Prix bas garanti</span>
                         <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">🚚 Livraison au frais du client</span>
                         <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">↩️ Retour 30 jours</span>

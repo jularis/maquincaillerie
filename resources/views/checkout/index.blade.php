@@ -324,7 +324,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn-primary w-full text-center text-base py-4 mt-5">
-                        ✅ Confirmer la commande
+                        ✅ Envoyer la commande
                     </button>
                     <p class="text-xs text-gray-400 text-center mt-3">🔒 Paiement 100% sécurisé</p>
 
