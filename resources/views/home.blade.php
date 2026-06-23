@@ -67,49 +67,6 @@
     </div>
 </section>
 
-{{-- ====================================================
-     SECTION 2 : BANNIÈRES PROMOTIONNELLES
-     ================================================== --}}
-<section class="bg-gray-50 py-6 border-b border-gray-200">
-    <div class="max-w-screen-xl mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-
-            <a href="{{ route('products.index') }}" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100">
-                <div class="h-2 bg-red-500"></div>
-                <div class="p-4">
-                    <div class="text-2xl mb-2">🏷️</div>
-                    <div class="text-xs font-bold text-gray-700 group-hover:text-red-600 transition-colors leading-snug">Promotion panneau solaire</div>
-                </div>
-            </a>
-
-            <a href="#" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100">
-                <div class="h-2 bg-blue-500"></div>
-                <div class="p-4">
-                    <div class="text-2xl mb-2">🛡️</div>
-                    <div class="text-xs font-bold text-gray-700 group-hover:text-blue-600 transition-colors leading-snug">Contrat de maintenance panneau solaire</div>
-                </div>
-            </a>
-
-            <a href="#" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100">
-                <div class="h-2 bg-navy"></div>
-                <div class="p-4">
-                    <div class="text-2xl mb-2">👷</div>
-                    <div class="text-xs font-bold text-gray-700 group-hover:text-navy transition-colors leading-snug">Prix pro pour installateur panneau solaire</div>
-                </div>
-            </a>
-
-
-
-            <a href="{{ route('products.index') }}" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100 col-span-2 md:col-span-1">
-                <div class="h-2 bg-orange"></div>
-                <div class="p-4">
-                    <div class="text-2xl mb-2">✅</div>
-                    <div class="text-xs font-bold text-gray-700 group-hover:text-orange transition-colors leading-snug">Prix bas garanti panneau solaire</div>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
 
 {{-- ====================================================
      SECTION 3 : CATÉGORIES DE PRODUITS
