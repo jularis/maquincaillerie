@@ -118,13 +118,14 @@
                 </div>
             </a>
 
-            <a href="#" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100">
+            <div class="bg-white rounded-xl overflow-hidden shadow-card border border-green-100">
                 <div class="h-2 bg-green-500"></div>
                 <div class="p-4">
-                    <div class="text-2xl mb-2">💳</div>
-                    <div class="text-xs font-bold text-gray-700 group-hover:text-green-600 transition-colors leading-snug">Financement panneau solaire</div>
+                    <div class="text-2xl mb-2">🏆</div>
+                    <div class="text-xs font-bold text-green-700 leading-snug">Expert en Photovoltaïque et stockage depuis 2019</div>
+                    <div class="text-xs text-gray-500 mt-1 leading-snug">+ 15 000 clients depuis la Côte d'Ivoire</div>
                 </div>
-            </a>
+            </div>
 
             <a href="{{ route('products.index') }}" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100 col-span-2 md:col-span-1">
                 <div class="h-2 bg-orange"></div>
@@ -458,7 +459,7 @@
         </div>
 
         <div class="text-center mt-10">
-            <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}" class="btn-primary text-base px-10 py-4">
+            <a href="{{ route('configurateur') }}" class="btn-primary text-base px-10 py-4">
                 🔆 Simulez votre installation photovoltaïque
             </a>
         </div>
