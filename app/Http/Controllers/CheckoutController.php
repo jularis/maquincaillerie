@@ -21,8 +21,8 @@ class CheckoutController extends Controller
 
         $subtotal = $items->sum(fn($i) => $i->product->price * $i->quantity);
         $tax      = round($subtotal * 0.18, 2);
-        $shipping = $subtotal >= 350000 ? 0 : 6500;
-        $total    = $subtotal + $tax + $shipping;
+        $shipping = 0;
+        $total    = $subtotal + $tax;
 
         $savedAddresses = auth()->check()
             ? auth()->user()->deliveryAddresses()->orderByDesc('is_default')->orderBy('created_at')->get()
@@ -56,7 +56,7 @@ class CheckoutController extends Controller
 
         $subtotal = $cartItems->sum(fn($i) => $i->product->price * $i->quantity);
         $tax      = round($subtotal * 0.18, 2);
-        $shipping = $subtotal >= 350000 ? 0 : 6500;
+        $shipping = 0;
 
         $order = \App\Models\Order::create([
             'order_number'   => 'CMD-' . strtoupper(uniqid()),

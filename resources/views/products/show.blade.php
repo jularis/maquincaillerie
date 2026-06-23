@@ -73,7 +73,7 @@
                 <div class="mb-6">
                     @if($product->stock > 5)
                     <span class="inline-flex items-center gap-1.5 text-green-700 bg-green-50 px-3 py-1.5 rounded-full text-sm font-medium">
-                        ✅ En stock — Livraison 24-48h
+                        ✅ En stock — Livraison au frais du client
                     </span>
                     @elseif($product->stock > 0)
                     <span class="inline-flex items-center gap-1.5 text-orange-700 bg-orange-50 px-3 py-1.5 rounded-full text-sm font-medium">
@@ -121,7 +121,7 @@
                     </div>
                     @endif
                     <div class="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg px-3 py-2">
-                        🚚 <span>Livraison offerte dès 350 000 F CFA</span>
+                        🚚 <span>Livraison au frais du client</span>
                     </div>
                     <div class="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 rounded-lg px-3 py-2">
                         ↩️ <span>Retour 30 jours</span>

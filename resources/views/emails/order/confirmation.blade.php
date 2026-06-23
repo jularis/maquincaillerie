@@ -112,9 +112,9 @@
         <span>TVA (18%)</span>
         <span>{{ number_format($order->tax, 0, ',', ' ') }} F CFA</span>
       </div>
-      <div class="trow {{ $order->shipping == 0 ? 'free' : '' }}">
+      <div class="trow">
         <span>Livraison</span>
-        <span>{{ $order->shipping == 0 ? '✅ Gratuite' : number_format($order->shipping, 0, ',', ' ') . ' F CFA' }}</span>
+        <span>Au frais du client</span>
       </div>
       <div class="trow">
         <span>Total TTC</span>

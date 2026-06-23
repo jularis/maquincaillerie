@@ -316,7 +316,7 @@
                         </div>
                         <div class="flex justify-between text-gray-600">
                             <span>Livraison</span>
-                            <span class="{{ $shipping == 0 ? 'text-green-600' : '' }}">{{ $shipping == 0 ? 'Gratuite' : fcfa($shipping) }}</span>
+                            <span>Au frais du client</span>
                         </div>
                         <div class="flex justify-between font-bold text-base pt-2 border-t border-gray-100">
                             <span>Total TTC</span>

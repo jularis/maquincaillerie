@@ -644,7 +644,7 @@
                     <div class="flex flex-wrap gap-2">
                         <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">✅ Installateurs RGE</span>
                         <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">🏆 Prix bas garanti</span>
-                        <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">🚚 Livraison 48h</span>
+                        <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">🚚 Livraison au frais du client</span>
                         <span class="text-xs bg-white/10 px-3 py-1.5 rounded-full font-medium">↩️ Retour 30 jours</span>
                     </div>
                 </div>

@@ -408,7 +408,7 @@
                 <h4 class="font-bold mb-3 text-white text-sm uppercase tracking-wider">Nos garanties</h4>
                 <div class="space-y-2 text-sm text-gray-400">
                     <div class="flex items-center gap-2">🔒 Paiement 100% sécurisé</div>
-                    <div class="flex items-center gap-2">🚚 Livraison rapide 24-48h</div>
+                    <div class="flex items-center gap-2">🚚 Livraison au frais du client</div>
                     <div class="flex items-center gap-2">↩️ Retour 30 jours</div>
                     <div class="flex items-center gap-2">🏆 Prix bas garanti</div>
                 </div>

@@ -81,15 +81,8 @@
                     </div>
                     <div class="flex justify-between text-gray-600">
                         <span>Livraison</span>
-                        <span class="{{ $total >= 350000 ? 'text-green-600 font-medium' : '' }}">
-                            {{ $total >= 350000 ? 'Gratuite' : fcfa(6500) }}
-                        </span>
+                        <span>Au frais du client</span>
                     </div>
-                    @if($total < 350000)
-                    <div class="text-xs text-primary-600 bg-primary-50 p-2 rounded-lg">
-                        💡 Plus que {{ fcfa(350000 - $total) }} pour la livraison gratuite !
-                    </div>
-                    @endif
                     <div class="flex justify-between text-gray-600">
                         <span>TVA (18%)</span>
                         <span>{{ fcfa($total * 0.18) }}</span>
@@ -98,7 +91,7 @@
                 <div class="border-t border-gray-100 pt-4 mb-5">
                     <div class="flex justify-between font-bold text-lg">
                         <span>Total TTC</span>
-                        <span class="text-primary-800">{{ fcfa($total * 1.18 + ($total >= 350000 ? 0 : 6500)) }}</span>
+                        <span class="text-primary-800">{{ fcfa($total * 1.18) }}</span>
                     </div>
                 </div>
                 <a href="{{ route('checkout.index') }}" class="btn-primary w-full text-center text-base py-3.5">
