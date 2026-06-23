@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git commit -m ' *)",
-      "Bash(git -C \"c:/laragon/www/maquincaillerie\" push origin main)"
+      "Bash(git -C \"c:/laragon/www/maquincaillerie\" push origin main)",
+      "Bash(git -C \"c:/laragon/www/maquincaillerie\" status)"
     ]
   }
 }

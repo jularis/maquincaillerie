@@ -657,33 +657,22 @@
         <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-        <div class="flex gap-6 marquee-track">
-            @php
-            $allBrands = [
-                ['name' => 'JA Solar',       'bg' => '#166534'],
-                ['name' => 'Victron Energy', 'bg' => '#1d4ed8'],
-                ['name' => 'SMA',            'bg' => '#1e3a8a'],
-                ['name' => 'Fronius',        'bg' => '#ea580c'],
-                ['name' => 'Enphase',        'bg' => '#7c3aed'],
-                ['name' => 'Pylontech',      'bg' => '#0e7490'],
-                ['name' => 'Growatt',        'bg' => '#15803d'],
-                ['name' => 'Huawei',         'bg' => '#dc2626'],
-                ['name' => "I'M SOLAR",      'bg' => '#2563eb'],
-                ['name' => 'LG',             'bg' => '#1f2937'],
-                ['name' => 'Tesla',          'bg' => '#111827'],
-            ];
-            // Tripler pour le défilement sans fin
-            $loopBrands = array_merge($allBrands, $allBrands, $allBrands);
-            @endphp
+        @php $loopBrands = $brands->concat($brands)->concat($brands); @endphp
+        <div class="flex gap-8 marquee-track">
             @foreach($loopBrands as $bl)
-            <div class="flex flex-col items-center justify-center gap-2 shrink-0 w-28">
-                <div class="w-14 h-14 rounded-xl flex items-center justify-center shadow-sm"
-                     style="background-color: {{ $bl['bg'] }}">
-                    <span class="text-white font-black text-sm text-center leading-tight px-1">
-                        {{ strtoupper(substr($bl['name'], 0, 3)) }}
-                    </span>
+            <div class="flex flex-col items-center justify-center gap-2 shrink-0 w-32">
+                <div class="w-24 h-14 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2">
+                    @if($bl->logo)
+                        <img src="{{ asset('storage/' . $bl->logo) }}"
+                             alt="{{ $bl->name }}"
+                             class="max-w-full max-h-full object-contain">
+                    @else
+                        <span class="text-gray-400 font-black text-sm text-center leading-tight px-1">
+                            {{ strtoupper(substr($bl->name, 0, 3)) }}
+                        </span>
+                    @endif
                 </div>
-                <span class="text-xs font-semibold text-gray-500 text-center leading-tight whitespace-nowrap">{{ $bl['name'] }}</span>
+                <span class="text-xs font-semibold text-gray-500 text-center leading-tight whitespace-nowrap">{{ $bl->name }}</span>
             </div>
             @endforeach
         </div>
