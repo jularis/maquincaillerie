@@ -67,8 +67,10 @@
         <span class="info-label">Mode de paiement</span>
         <span class="info-value">
           @switch($order->payment_method)
-            @case('cod') 🚚 Paiement à la livraison @break
-            @case('card') 💳 Carte bancaire @break
+            @case('cod') 🏪 Paiement espèce en magasin @break
+            @case('orange_money') 🟠 Orange Money @break
+            @case('wave') 🌊 Wave @break
+            @case('mtn_money') 🟡 MTN Money @break
             @case('transfer') 🏦 Virement bancaire @break
             @case('check') 📝 Chèque @break
             @default {{ $order->payment_method }}
@@ -130,10 +132,32 @@
     </div>
 
     @if($order->payment_method === 'cod')
-    <div class="pay-badge">🚚 Vous paierez en espèces à la réception — livraison sous 24 à 48h</div>
+    <div class="pay-badge">🏪 Vous paierez en espèces en magasin — livraison sous 24 à 48h</div>
+    @elseif(in_array($order->payment_method, ['orange_money', 'wave', 'mtn_money']))
+    @php
+        $mobileEmailLabel = match($order->payment_method) {
+            'orange_money' => '🟠 Orange Money — ' . setting('site.orange_money_number'),
+            'wave'         => '🌊 Wave — ' . setting('site.wave_number'),
+            'mtn_money'    => '🟡 MTN Money — ' . setting('site.mtn_money_number'),
+        };
+    @endphp
+    <div class="pay-badge" style="background:#fefce8;border-color:#fde68a;color:#92400e;">
+      📱 <strong>Paiement Mobile : {{ $mobileEmailLabel }}</strong><br>
+      <span style="font-size:12px;">Envoyez la capture d'écran à {{ setting('site.email') }} avec la référence <strong>{{ $order->order_number }}</strong>.</span>
+    </div>
     @elseif($order->payment_method === 'transfer')
     <div class="pay-badge" style="background:#eff6ff;border-color:#bfdbfe;color:#1e40af;">
-      🏦 Veuillez effectuer votre virement dans les 48h pour valider votre commande
+      🏦 <strong>Veuillez effectuer votre virement dans les 48h pour valider votre commande.</strong><br>
+      <span style="font-size:13px;display:block;margin-top:6px;">
+        <strong>Bénéficiaire :</strong> CLEAN ENERGY SERVICES<br>
+        <strong>RIB :</strong> <span style="font-family:monospace;letter-spacing:0.05em;">CI93 CI12 1013 0603 2173 1002 0104</span><br>
+        <span style="font-size:12px;color:#3b82f6;">Référence : {{ $order->order_number }}</span>
+      </span>
+    </div>
+    @elseif($order->payment_method === 'check')
+    <div class="pay-badge" style="background:#f9fafb;border-color:#d1d5db;color:#374151;">
+      📝 <strong>Chèque à l'ordre de : CLEAN ENERGY SERVICES</strong><br>
+      <span style="font-size:12px;color:#6b7280;">Merci d'indiquer la référence <strong>{{ $order->order_number }}</strong> au dos du chèque.</span>
     </div>
     @else
     <div class="pay-badge">✅ Votre commande sera expédiée dès validation du paiement</div>

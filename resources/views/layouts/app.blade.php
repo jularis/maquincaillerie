@@ -361,13 +361,6 @@
                     <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange transition-colors text-xs font-bold">in</a>
                     <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange transition-colors text-xs font-bold">ig</a>
                 </div>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                    <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-400 cursor-pointer hover:bg-white/20">FR</span>
-                    <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-400 cursor-pointer hover:bg-white/20">EN</span>
-                    <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-400 cursor-pointer hover:bg-white/20">BE-FR</span>
-                    <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-400 cursor-pointer hover:bg-white/20">DE</span>
-                    <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-400 cursor-pointer hover:bg-white/20">IT</span>
-                </div>
             </div>
 
             {{-- Products --}}

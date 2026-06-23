@@ -42,7 +42,7 @@ class CheckoutController extends Controller
             'city'           => 'required|string|max:100',
             'postal_code'    => 'nullable|string|max:20',
             'country'        => 'nullable|string|max:3',
-            'payment_method' => 'required|in:cod,card,transfer,check',
+            'payment_method' => 'required|in:cod,orange_money,wave,mtn_money,transfer,check',
         ]);
 
         $sessionId = session()->getId();

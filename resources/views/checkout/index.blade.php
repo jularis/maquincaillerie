@@ -189,36 +189,91 @@
                                :class="method === 'cod' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
                             <input type="radio" name="payment_method" value="cod" x-model="method" class="text-navy">
                             <div>
-                                <div class="font-semibold text-sm">🚚 Paiement à la livraison</div>
-                                <div class="text-xs text-gray-500">Payez en espèces à la réception de votre commande</div>
+                                <div class="font-semibold text-sm">🏪 Paiement espèce en magasin</div>
+                                <div class="text-xs text-gray-500">Payez en espèces directement en magasin</div>
                             </div>
                             <div class="ml-auto text-xs font-medium text-green-600 shrink-0">Recommandé</div>
                         </label>
-                        <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
-                               :class="method === 'card' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
-                            <input type="radio" name="payment_method" value="card" x-model="method" class="text-navy">
-                            <div>
-                                <div class="font-semibold text-sm">💳 Carte bancaire</div>
-                                <div class="text-xs text-gray-500">Visa, Mastercard, American Express</div>
+                        {{-- Paiement Mobile --}}
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <div class="px-4 py-3 bg-gray-50 border-b border-gray-200 text-sm font-semibold text-gray-700">
+                                📱 Paiement Mobile
                             </div>
-                            <div class="ml-auto flex gap-1 text-xs text-gray-400 shrink-0">VISA MC</div>
-                        </label>
-                        <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
-                               :class="method === 'transfer' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
-                            <input type="radio" name="payment_method" value="transfer" x-model="method" class="text-navy">
-                            <div>
-                                <div class="font-semibold text-sm">🏦 Virement bancaire</div>
-                                <div class="text-xs text-gray-500">Délai : 2-3 jours ouvrables</div>
+                            <div class="divide-y divide-gray-100">
+                                <label class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors"
+                                       :class="method === 'orange_money' ? 'bg-orange-50' : 'hover:bg-gray-50'">
+                                    <input type="radio" name="payment_method" value="orange_money" x-model="method" class="text-orange-500">
+                                    <div class="flex items-center gap-2 flex-1">
+                                        <span class="text-lg">🟠</span>
+                                        <div>
+                                            <div class="font-semibold text-sm">Orange Money</div>
+                                            <div class="text-xs text-gray-500">{{ setting('site.orange_money_number') }}</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors"
+                                       :class="method === 'wave' ? 'bg-blue-50' : 'hover:bg-gray-50'">
+                                    <input type="radio" name="payment_method" value="wave" x-model="method" class="text-blue-500">
+                                    <div class="flex items-center gap-2 flex-1">
+                                        <span class="text-lg">🌊</span>
+                                        <div>
+                                            <div class="font-semibold text-sm">Wave</div>
+                                            <div class="text-xs text-gray-500">{{ setting('site.wave_number') }}</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors"
+                                       :class="method === 'mtn_money' ? 'bg-yellow-50' : 'hover:bg-gray-50'">
+                                    <input type="radio" name="payment_method" value="mtn_money" x-model="method" class="text-yellow-500">
+                                    <div class="flex items-center gap-2 flex-1">
+                                        <span class="text-lg">🟡</span>
+                                        <div>
+                                            <div class="font-semibold text-sm">MTN Money</div>
+                                            <div class="text-xs text-gray-500">{{ setting('site.mtn_money_number') }}</div>
+                                        </div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                        <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
-                               :class="method === 'check' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
-                            <input type="radio" name="payment_method" value="check" x-model="method" class="text-navy">
-                            <div>
-                                <div class="font-semibold text-sm">📝 Chèque</div>
-                                <div class="text-xs text-gray-500">À l'ordre de Ma Quincaillerie Solaire</div>
+                            <div x-show="['orange_money','wave','mtn_money'].includes(method)" x-cloak
+                                 class="px-4 py-3 bg-yellow-50 border-t border-yellow-200 text-xs text-yellow-800">
+                                📲 Effectuez le paiement au numéro affiché puis envoyez la capture d'écran à <strong>{{ setting('site.email') }}</strong> en indiquant votre numéro de commande.
                             </div>
-                        </label>
+                        </div>
+                        <div>
+                            <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
+                                   :class="method === 'transfer' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
+                                <input type="radio" name="payment_method" value="transfer" x-model="method" class="text-navy">
+                                <div>
+                                    <div class="font-semibold text-sm">🏦 Virement bancaire</div>
+                                    <div class="text-xs text-gray-500">Délai : 2-3 jours ouvrables</div>
+                                </div>
+                            </label>
+                            <div x-show="method === 'transfer'" x-cloak
+                                 class="mx-2 mb-2 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm">
+                                <p class="font-semibold text-blue-800 mb-2">Coordonnées bancaires :</p>
+                                <div class="space-y-1 text-blue-700">
+                                    <div><span class="font-medium">Bénéficiaire :</span> CLEAN ENERGY SERVICES</div>
+                                    <div><span class="font-medium">RIB :</span> <span class="font-mono tracking-wide">CI93 CI12 1013 0603 2173 1002 0104</span></div>
+                                </div>
+                                <p class="text-xs text-blue-500 mt-2">Merci d'indiquer votre numéro de commande en référence du virement.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
+                                   :class="method === 'check' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
+                                <input type="radio" name="payment_method" value="check" x-model="method" class="text-navy">
+                                <div>
+                                    <div class="font-semibold text-sm">📝 Chèque</div>
+                                    <div class="text-xs text-gray-500">À l'ordre de CLEAN ENERGY SERVICES</div>
+                                </div>
+                            </label>
+                            <div x-show="method === 'check'" x-cloak
+                                 class="mx-2 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl text-sm">
+                                <p class="font-semibold text-gray-700 mb-1">Chèque à l'ordre de :</p>
+                                <p class="font-mono font-bold text-gray-800">CLEAN ENERGY SERVICES</p>
+                                <p class="text-xs text-gray-500 mt-2">Merci d'indiquer votre numéro de commande au dos du chèque.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

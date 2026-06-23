@@ -179,6 +179,42 @@ class SettingsTableSeeder extends Seeder
                 'group'        => 'Site',
             ])->save();
         }
+
+        $setting = $this->findSetting('site.orange_money_number');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'Orange Money (numéro)',
+                'value'        => '',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 9,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.wave_number');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'Wave (numéro)',
+                'value'        => '',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 10,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.mtn_money_number');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'MTN Money (numéro)',
+                'value'        => '',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 11,
+                'group'        => 'Site',
+            ])->save();
+        }
     }
 
     /**
