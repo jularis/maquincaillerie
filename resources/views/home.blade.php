@@ -664,7 +664,7 @@
             <div class="flex flex-col items-center justify-center gap-2 shrink-0 w-32">
                 <div class="w-24 h-14 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2">
                     @if($bl->logo)
-                        <img src="{{ asset('storage/app/public/' . $bl->logo) }}"
+                        <img src="{{ url('storage/app/public/' . $bl->logo) }}"
                              alt="{{ $bl->name }}"
                              class="max-w-full max-h-full object-contain">
                     @else
