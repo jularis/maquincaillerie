@@ -16,9 +16,18 @@
     <div class="max-w-screen-xl mx-auto px-4 pt-12 pb-8 relative">
 
         {{-- Title --}}
-{{-- 3 configurator cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+{{-- 2 hero cards --}}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
 
+            {{-- Card 1: Expert --}}
+            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center">
+                <p class="text-3xl font-extrabold leading-tight mb-3">
+                    Expert Photovoltaïque<br>et stockage depuis 2019
+                </p>
+                <p class="text-4xl font-extrabold text-solar">
+                    15 000+ clients satisfaits
+                </p>
+            </div>
 
             {{-- Card 2: Configurateur avancé --}}
             <div class="bg-orange rounded-2xl p-6 text-white shadow-xl flex flex-col">
@@ -36,37 +45,8 @@
                 </p>
                 <a href="{{ route('configurateur') }}"
                    class="w-full text-center py-3 bg-white text-orange font-semibold rounded-xl hover:bg-orange-50 transition-colors text-sm">
-                    Configurer mon kit →
+                    🔆 Sélectionnez un kit solaire
                 </a>
-            </div>
-
-            {{-- Card 3: Onduleurs & batteries --}}
-            <div class="bg-white rounded-2xl p-6 text-gray-800 shadow-xl flex flex-col">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-solar/10 rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-solar" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <div>
-                        <div class="font-bold text-navy">Onduleurs & batteries</div>
-                        <div class="text-xs text-gray-500">Solution instantanée</div>
-                    </div>
-                </div>
-                <div class="space-y-3 flex-1">
-                    <div>
-                        <a href="{{ route('products.index', ['category' => 'onduleurs']) }}"
-                           class="block w-full text-center py-2.5 bg-navy/5 border border-navy/20 text-navy font-semibold rounded-xl hover:bg-navy hover:text-white transition-colors text-sm mb-2">
-                            Choisir un onduleur
-                        </a>
-                        <p class="text-xs text-gray-500">Trouvez rapidement l'onduleur idéal. Meilleur prix garanti, solution instantanée.</p>
-                    </div>
-                    <div>
-                        <a href="{{ route('products.index', ['category' => 'batteries']) }}"
-                           class="block w-full text-center py-2.5 bg-solar/10 border border-solar/30 text-solar-600 font-semibold rounded-xl hover:bg-solar hover:text-white transition-colors text-sm mb-2">
-                            Choisir une batterie
-                        </a>
-                        <p class="text-xs text-gray-500">Trouvez la batterie parfaite. Obtenez immédiatement au meilleur prix la solution qu'il vous faut.</p>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -118,14 +98,7 @@
                 </div>
             </a>
 
-            <div class="bg-white rounded-xl overflow-hidden shadow-card border border-green-100">
-                <div class="h-2 bg-green-500"></div>
-                <div class="p-4">
-                    <div class="text-2xl mb-2">🏆</div>
-                    <div class="text-xs font-bold text-green-700 leading-snug">Expert en Photovoltaïque et stockage depuis 2019</div>
-                    <div class="text-xs text-gray-500 mt-1 leading-snug">+ 15 000 clients depuis la Côte d'Ivoire</div>
-                </div>
-            </div>
+
 
             <a href="{{ route('products.index') }}" class="group bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all border border-gray-100 col-span-2 md:col-span-1">
                 <div class="h-2 bg-orange"></div>
@@ -154,7 +127,7 @@
                 'label' => 'KITS SOLAIRES',
                 'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM9 22V12h6v10"/>',
                 'product_svg' => '
-                <svg viewBox="0 0 150 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
+                <svg viewBox="0 0 150 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-40 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
                   <rect x="2" y="6" width="56" height="36" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.04)"/>
                   <line x1="2" y1="18" x2="58" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
                   <line x1="2" y1="30" x2="58" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
@@ -178,7 +151,7 @@
                 'label' => 'PANNEAUX SOLAIRES',
                 'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 12h18M3 17h18M7 3v18M12 3v18M17 3v18"/>',
                 'product_svg' => '
-                <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
+                <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-40 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
                   <rect x="4" y="8" width="132" height="84" rx="4" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.04)"/>
                   <line x1="4" y1="36" x2="136" y2="36" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
                   <line x1="4" y1="64" x2="136" y2="64" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
@@ -227,7 +200,7 @@
                 'label' => 'ACCESSOIRES',
                 'icon_svg' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"/>',
                 'product_svg' => '
-                <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-24 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
+                <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-40 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl">
                   <path d="M18 28 Q18 14 28 12 Q38 10 40 20 L42 22 L90 70 L92 72 Q102 74 104 82 Q106 92 96 94 Q86 96 82 88 L80 86 L32 38 L30 36 Q20 38 18 28Z" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.06)" stroke-linejoin="round"/>
                   <circle cx="28" cy="22" r="6" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.15)"/>
                   <circle cx="92" cy="86" r="6" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.15)"/>
@@ -263,9 +236,9 @@
                style="background: linear-gradient(160deg, #0f2d5e 0%, #071a3e 60%, #0a2347 100%); min-height: 220px;">
                 <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                      style="background: radial-gradient(circle at 50% 20%, rgba(251,191,36,0.14) 0%, transparent 65%)"></div>
-                <div class="relative z-10 flex flex-col items-center pt-5 px-3">
-                    <p class="text-white font-black text-[10px] uppercase tracking-widest text-center leading-tight mb-2">{{ $d['label'] }}</p>
-                    <svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $d['icon_svg'] !!}</svg>
+                <div class="relative z-10 flex flex-col items-center pt-6 px-3">
+                    <p class="text-white font-black text-lg uppercase tracking-widest text-center leading-tight mb-4">{{ $d['label'] }}</p>
+                    <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $d['icon_svg'] !!}</svg>
                 </div>
                 <div class="relative z-10 flex-1 flex items-center justify-center px-3 pb-3">
                     {!! $d['product_svg'] !!}

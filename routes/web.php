@@ -28,8 +28,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/produits', [ProductController::class, 'index'])->name('products.index');
 Route::get('/produits/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 
-// Configurateur
+// Configurateur / Devis
 Route::get('/configurateur', fn() => view('configurateur'))->name('configurateur');
+Route::post('/devis', [\App\Http\Controllers\DevisController::class, 'send'])->name('devis.send');
 
 // Cart
 Route::get('/panier', [CartController::class, 'index'])->name('cart.index');

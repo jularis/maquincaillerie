@@ -27,7 +27,7 @@
     $telPhone1  = 'tel:' . str_replace(['+', ' '], '', $sitePhone1);
     $telPhone2  = 'tel:' . str_replace(['+', ' '], '', $sitePhone2);
     $telPhone3  = 'tel:' . str_replace(['+', ' '], '', $sitePhone3);
-    $waPhone2   = 'https://wa.me/' . str_replace(['+', ' '], '', $sitePhone2) . '?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20une%20installation%20solaire.';
+    $waPhone2   = 'https://wa.me/' . str_replace(['+', ' '], '', $sitePhone1) . '?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20une%20installation%20solaire.';
 @endphp
 
 {{-- ===== TOP CONTACT BAR ===== --}}
@@ -53,7 +53,7 @@
                 <button @click="devisOpen = !devisOpen"
                         class="flex items-center gap-1 font-semibold text-orange hover:text-orange-dark transition-colors">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    Demande de devis
+                    Discutez avec un commercial
                     <svg class="w-3 h-3 transition-transform" :class="devisOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
 
@@ -89,11 +89,6 @@
                     </a>
                 </div>
             </div>
-            <a href="mailto:{{ $siteEmail }}" class="flex items-center gap-1 hover:text-navy transition-colors">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                {{ $siteEmail }}
-            </a>
-
         </div>
     </div>
 </div>
@@ -216,7 +211,7 @@
                     <a href="{{ route('configurateur') }}"
                        class="nav-link flex items-center gap-1.5 text-orange font-bold">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-                        Configurateur
+                        Demandez un devis
                     </a>
                 </div>
 
@@ -296,7 +291,7 @@
 
         <div class="p-4 space-y-1">
             <a href="{{ route('configurateur') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-bold text-orange bg-orange/5">
-                ⚡ Configurateur
+                ⚡ Demandez un devis
             </a>
             <a href="{{ route('products.index') }}" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-bold text-red-600 bg-red-50">
                 🏷️ Destockage
