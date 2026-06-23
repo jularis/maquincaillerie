@@ -131,6 +131,54 @@ class SettingsTableSeeder extends Seeder
                 'group'        => 'Admin',
             ])->save();
         }
+
+        $setting = $this->findSetting('site.email');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'Email de contact',
+                'value'        => 'commerciale@cleanenergyservices.net',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 5,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.phone_1');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'Téléphone 1',
+                'value'        => '+225 27 35 95 89 98',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 6,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.phone_2');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'Téléphone 2',
+                'value'        => '+225 07 69 62 26 44',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 7,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.phone_3');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => 'Téléphone 3',
+                'value'        => '+225 05 56 65 13 55',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 8,
+                'group'        => 'Site',
+            ])->save();
+        }
     }
 
     /**

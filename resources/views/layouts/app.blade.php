@@ -19,22 +19,32 @@
     </style>
 </head>
 <body class="bg-white">
+@php
+    $siteEmail  = setting('site.email');
+    $sitePhone1 = setting('site.phone_1');
+    $sitePhone2 = setting('site.phone_2');
+    $sitePhone3 = setting('site.phone_3');
+    $telPhone1  = 'tel:' . str_replace(['+', ' '], '', $sitePhone1);
+    $telPhone2  = 'tel:' . str_replace(['+', ' '], '', $sitePhone2);
+    $telPhone3  = 'tel:' . str_replace(['+', ' '], '', $sitePhone3);
+    $waPhone2   = 'https://wa.me/' . str_replace(['+', ' '], '', $sitePhone2) . '?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20une%20installation%20solaire.';
+@endphp
 
 {{-- ===== TOP CONTACT BAR ===== --}}
 <div class="bg-gray-50 border-b border-gray-200 text-xs text-gray-600 relative z-[200]">
     <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-9 gap-4">
         <div class="hidden md:flex items-center gap-5">
-            <a href="tel:+2252735958998" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
+            <a href="{{ $telPhone1 }}" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-                27 35 95 89 98
+                {{ $sitePhone1 }}
             </a>
             <span class="text-gray-300">|</span>
-            <a href="tel:+2250769622644" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
-                07 69 62 26 44
+            <a href="{{ $telPhone2 }}" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
+                {{ $sitePhone2 }}
             </a>
             <span class="text-gray-300">|</span>
-            <a href="tel:+2250556651355" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
-                05 56 65 13 55
+            <a href="{{ $telPhone3 }}" class="flex items-center gap-1.5 hover:text-navy transition-colors font-medium">
+                {{ $sitePhone3 }}
             </a>
         </div>
         <div class="flex items-center gap-4 ml-auto">
@@ -53,7 +63,7 @@
                      x-transition:enter-end="opacity-100 translate-y-0"
                      class="absolute left-0 top-full mt-2 w-52 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50" style="z-index: 2000;">
 
-                    <a href="https://wa.me/2250769622644?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20une%20installation%20solaire."
+                    <a href="{{ $waPhone2 }}"
                        target="_blank"
                        class="flex items-center gap-3 px-4 py-3 hover:bg-green-50 transition-colors group">
                         <span class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center shrink-0">
@@ -67,7 +77,7 @@
 
                     <div class="border-t border-gray-100"></div>
 
-                    <a href="mailto:commerciale@cleanenergyservices.net?subject=Demande%20de%20devis%20installation%20solaire&body=Bonjour%2C%0A%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20une%20installation%20solaire.%0A%0AMerci."
+                    <a href="mailto:{{ $siteEmail }}?subject=Demande%20de%20devis%20installation%20solaire&body=Bonjour%2C%0A%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20une%20installation%20solaire.%0A%0AMerci."
                        class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
                         <span class="w-8 h-8 bg-navy rounded-lg flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -79,9 +89,9 @@
                     </a>
                 </div>
             </div>
-            <a href="mailto:commerciale@cleanenergyservices.net" class="flex items-center gap-1 hover:text-navy transition-colors">
+            <a href="mailto:{{ $siteEmail }}" class="flex items-center gap-1 hover:text-navy transition-colors">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                commerciale@cleanenergyservices.net
+                {{ $siteEmail }}
             </a>
             <a href="#" class="flex items-center gap-1 hover:text-navy transition-colors">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
@@ -125,9 +135,9 @@
             <div class="flex items-center gap-2 ml-auto">
 
                 {{-- Phone (hidden on mobile) --}}
-                <a href="tel:+2252735958998" class="hidden xl:flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy-dark transition-colors pr-4 border-r border-gray-200">
+                <a href="{{ $telPhone1 }}" class="hidden xl:flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy-dark transition-colors pr-4 border-r border-gray-200">
                     <svg class="w-4 h-4 text-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-                    +225 27 35 95 89 98
+                    {{ $sitePhone1 }}
                 </a>
 
                 {{-- RDV --}}
@@ -304,7 +314,7 @@
             @endforeach
             <div class="pt-3 pb-1 border-t border-gray-100">
                 <div class="flex gap-2">
-                    <a href="tel:+2252735958998" class="flex-1 text-center py-2.5 text-sm font-medium bg-gray-50 text-navy rounded-lg border border-gray-200">📞 27 35 95 89 98</a>
+                    <a href="{{ $telPhone1 }}" class="flex-1 text-center py-2.5 text-sm font-medium bg-gray-50 text-navy rounded-lg border border-gray-200">📞 {{ $sitePhone1 }}</a>
                 </div>
                 @guest
                 <div class="flex gap-2 mt-2">
@@ -385,12 +395,12 @@
                 <ul class="space-y-3 text-sm text-gray-400">
                     <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2">📚 Votre assistance</a></li>
                     <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2">🎓 Formez-vous sur le solaire</a></li>
-                    <li><a href="mailto:commerciale@cleanenergyservices.net" class="hover:text-white transition-colors flex items-center gap-2">✉️ commerciale@cleanenergyservices.net</a></li>
+                    <li><a href="mailto:{{ $siteEmail }}" class="hover:text-white transition-colors flex items-center gap-2">✉️ {{ $siteEmail }}</a></li>
                     <li>
                         <div class="flex items-center gap-2 mb-1">📞 Téléphone :</div>
-                        <a href="tel:+2252735958998" class="hover:text-white transition-colors block pl-6">+225 27 35 95 89 98</a>
-                        <a href="tel:+2250769622644" class="hover:text-white transition-colors block pl-6">+225 07 69 62 26 44</a>
-                        <a href="tel:+2250556651355" class="hover:text-white transition-colors block pl-6">+225 05 56 65 13 55</a>
+                        <a href="{{ $telPhone1 }}" class="hover:text-white transition-colors block pl-6">{{ $sitePhone1 }}</a>
+                        <a href="{{ $telPhone2 }}" class="hover:text-white transition-colors block pl-6">{{ $sitePhone2 }}</a>
+                        <a href="{{ $telPhone3 }}" class="hover:text-white transition-colors block pl-6">{{ $sitePhone3 }}</a>
                     </li>
                 </ul>
             </div>

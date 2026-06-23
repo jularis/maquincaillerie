@@ -65,11 +65,12 @@ class VoyagerBreadSeeder extends Seeder
             ['field' => 'short_description', 'type' => 'text_area',      'display_name' => 'Résumé',         'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 11, 'details' => []],
             ['field' => 'description',       'type' => 'rich_text_box',  'display_name' => 'Description',    'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 12, 'details' => []],
             ['field' => 'power',             'type' => 'number',         'display_name' => 'Puissance (W)',  'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 13, 'details' => $numAny],
-            ['field' => 'warranty',          'type' => 'text',           'display_name' => 'Garantie',       'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 14, 'details' => []],
-            ['field' => 'featured',          'type' => 'checkbox',       'display_name' => 'En vedette',     'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 15, 'details' => $chk],
-            ['field' => 'active',            'type' => 'checkbox',       'display_name' => 'Actif',          'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 16, 'details' => $chk],
-            ['field' => 'created_at',        'type' => 'timestamp',      'display_name' => 'Créé le',        'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 17, 'details' => []],
-            ['field' => 'updated_at',        'type' => 'timestamp',      'display_name' => 'Modifié le',     'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 18, 'details' => []],
+            ['field' => 'warranty',          'type' => 'text',           'display_name' => 'Garantie',              'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 14, 'details' => []],
+            ['field' => 'datasheet',         'type' => 'file',           'display_name' => 'Fiche technique (PDF)', 'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 15, 'details' => []],
+            ['field' => 'featured',          'type' => 'checkbox',       'display_name' => 'En vedette',            'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 16, 'details' => $chk],
+            ['field' => 'active',            'type' => 'checkbox',       'display_name' => 'Actif',                 'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 17, 'details' => $chk],
+            ['field' => 'created_at',        'type' => 'timestamp',      'display_name' => 'Créé le',               'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 18, 'details' => []],
+            ['field' => 'updated_at',        'type' => 'timestamp',      'display_name' => 'Modifié le',            'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 19, 'details' => []],
         ];
 
         $this->syncDataRows($type, $rows);

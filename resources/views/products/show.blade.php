@@ -128,6 +128,25 @@
                     </div>
                 </div>
 
+                {{-- Fiche technique --}}
+                @if($product->datasheet)
+                <a href="{{ asset('storage/' . $product->datasheet) }}"
+                   target="_blank"
+                   download
+                   class="flex items-center gap-3 w-full bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 hover:bg-red-100 transition-colors mb-6 font-semibold text-sm">
+                    <svg class="w-6 h-6 shrink-0 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17l-4-4h2.5v-3h3v3H16l-4 4z"/>
+                    </svg>
+                    <div>
+                        <div>Télécharger la fiche technique</div>
+                        <div class="text-xs text-red-400 font-normal">Format PDF</div>
+                    </div>
+                    <svg class="w-4 h-4 ml-auto shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                </a>
+                @endif
+
                 {{-- Contact --}}
                 <div class="bg-primary-50 rounded-xl p-4 border border-primary-100">
                     <p class="text-sm font-semibold text-primary-800 mb-1">💬 Besoin d'un conseil ?</p>
