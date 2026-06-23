@@ -6,7 +6,7 @@
 @section('content')
 
 @php
-    $waNumber = str_replace(['+', ' '], '', setting('site.phone_2'));
+    $waNumber = str_replace(['+', ' '], '', setting('site.phone_1'));
 @endphp
 
 <section class="py-14 bg-white">
@@ -149,6 +149,11 @@
                             :class="toiture === 'Tôle' ? 'border-navy bg-navy text-white shadow-md' : 'border-gray-200 bg-white text-gray-700 hover:border-navy hover:text-navy'"
                             class="flex-1 py-3 rounded-xl border-2 text-sm font-semibold transition-all">
                             🏠 Tôle
+                        </button>
+                        <button type="button" @click="toiture = 'Tuile'"
+                            :class="toiture === 'Tuile' ? 'border-navy bg-navy text-white shadow-md' : 'border-gray-200 bg-white text-gray-700 hover:border-navy hover:text-navy'"
+                            class="flex-1 py-3 rounded-xl border-2 text-sm font-semibold transition-all">
+                            🏡 Tuile
                         </button>
                     </div>
                 </div>
