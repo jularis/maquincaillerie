@@ -268,32 +268,44 @@
             @php
             $faqs = [
                 [
-                    'q' => 'Quel est le coût d\'une installation solaire ?',
-                    'a' => 'Le prix moyen d\'une installation solaire est compris entre 1 600 000 F CFA et 2 300 000 F CFA TTC pour l\'achat du matériel seul. Cela peut augmenter de 3 300 000 F CFA à 4 000 000 F CFA TTC avec stockage. Si vous décidez de faire appel à une société d\'installation, vous allez devoir ajouter à ce prix un tarif d\'environ 1 600 000 F CFA TTC.'
+                    'q' => 'Que signifie le « kWh » inscrit sur le nom de vos kits solaires ?',
+                    'a' => 'Le kWh (Kilowatt-heure) inscrit sur le nom de nos kits désigne la production d\'énergie journalière moyenne que le champ de panneaux solaires va produire en une journée en Côte d\'Ivoire. Cela devrait être approximativement égale à votre consommation journalière d\'électricité. Cela vous permet de choisir directement votre kit en fonction de votre consommation habituelle. Si vous avez une ancienne facture, vous trouverez la valeur de votre consommation en 60 jours. Si vous divisez par 60, vous aurez votre consommation journalière moyenne.'
                 ],
                 [
-                    'q' => 'Est-il rentable d\'installer des panneaux solaires ?',
-                    'a' => 'La réponse est « Oui » sans hésitation. Il est très rentable de réaliser son installation de panneaux photovoltaïques. Le prix moyen d\'une installation a chuté ces dernières années et le coût de l\'électricité ne fait qu\'augmenter. Une installation est rentabilisée en moins de 5 ans. Du fait de vendre en direct aux clients finaux, nous pouvons réduire cette durée à 2 ans.'
+                    'q' => 'Comment savoir si je dois choisir une installation Monophasée ou Triphasée ?',
+                    'a' => 'Cela dépend du compteur CIE de votre bâtiment. Si vous êtes un particulier avec des équipements standards, vous êtes généralement en Monophasé. Si vous avez beaucoup de climatiseurs tels que dans les villas duplex ou une entreprise, une industrie, vous êtes probablement en Triphasé. Vérifiez simplement l\'inscription sur votre facture CIE ou votre disjoncteur principal ou contactez nos experts pour un appui.'
                 ],
                 [
-                    'q' => 'Quelle puissance solaire pour alimenter une maison ?',
-                    'a' => 'Les études montrent qu\'en moyenne, une maison consomme 6 500 kWh/an. Pour répondre à ce besoin, il faut environ 6 kW de panneaux solaires sur votre toit. Pour produire cette puissance, vous avez besoin d\'environ seulement 25m². Avec une telle puissance solaire, vous pouvez espérer baisser votre facture d\'énergie jusqu\'à 100%.'
+                    'q' => 'Quelle est la différence entre vos batteries Lithium LiFePO4 et les anciennes batteries au Plomb/GEL ?',
+                    'a' => 'La technologie Lithium (LiFePO4) que nous distribuons est une révolution : Durée de vie de plus de 10 ans (+6000 cycles) contre seulement 1 à 2 ans pour le GEL. Efficacité : vous pouvez vider une batterie lithium jusqu\'à 90% ou 100% sans l\'abîmer, alors qu\'une batterie GEL ne doit pas être déchargée à plus de 50%. Entretien : zéro maintenance et aucune émission de chaleur toxique.'
                 ],
                 [
-                    'q' => 'Combien d\'électricité produit une installation de 3 kW ?',
-                    'a' => 'Pour estimer la production, nous devons connaître votre lieu géographique. Dans le sud de la France, vous pouvez produire 4 500 kWh/an pour une installation de 3 kW. À l\'inverse, dans le nord, vous pouvez produire jusqu\'à 3 000 kWh/an. Contactez-nous pour obtenir une étude personnalisée.'
+                    'q' => 'Vos kits solaires fonctionnent-ils encore lorsqu\'il pleut ou que le temps est très nuageux ?',
+                    'a' => 'Oui. Les panneaux photovoltaïques de dernière génération captent la lumière diffuse, même à travers les nuages. La production est certes réduite, mais c\'est là que vos batteries prennent le relais pour maintenir vos appareils allumés sans coupure.'
                 ],
                 [
-                    'q' => 'Quel est le taux de TVA pour une installation solaire de 6 kW ?',
-                    'a' => 'Le taux de TVA en France évolue à partir du 1er Octobre 2025. L\'installation photovoltaïque de moins de 9 kW sera de 5,5% si et seulement si vous commandez le matériel chez un installateur certifié RGE et que vous réalisez un contrat de revente de surplus.'
+                    'q' => 'Que se passe-t-il lors d\'une coupure de l\'installation solaire ?',
+                    'a' => 'Grâce à nos onduleurs hybrides intelligents, le basculement vers la CIE se fait de manière automatique et instantanée (en moins de 10 millisecondes). Vos ordinateurs, télévisions, serveurs et climatiseurs continuent de fonctionner normalement, sans que vous ne remarquiez la moindre coupure.'
                 ],
                 [
-                    'q' => 'Quelle puissance dois-je installer pour être autonome ?',
-                    'a' => 'Pour devenir autonome, vous allez devoir installer des panneaux solaires et une batterie solaire. Il faut connaître votre consommation d\'électricité journalière à chaque saison. En moyenne, il faut partir sur une installation solaire de 6 kW afin d\'être proche de l\'autonomie énergétique.'
+                    'q' => 'Est-ce que le prix affiché sur le site inclut l\'installation et la mise en service ?',
+                    'a' => 'Les prix affichés sur Ma Quincaillerie Solaire concernent la fourniture, l\'installation et la mise en service (onduleurs, panneaux, batteries, protection et accessoires). Mais des frais supplémentaires peuvent s\'ajouter après la visite de site en tenant compte d\'autres facteurs : site situé en dehors d\'Abidjan, local technique à construire, ajout de câbles supplémentaires...'
                 ],
                 [
-                    'q' => 'Quelle est la différence entre un panneau solaire et un panneau photovoltaïque ?',
-                    'a' => 'Un panneau solaire regroupe 2 catégories : le panneau photovoltaïque et le panneau thermique. Le panneau photovoltaïque produit de l\'électricité grâce à ses cellules photovoltaïques tandis que le panneau thermique réchauffe un fluide utilisé pour chauffer votre eau chaude sanitaire.'
+                    'q' => 'Quelle est la durée de garantie sur vos équipements ?',
+                    'a' => 'Nous distribuons du matériel de grade industriel. Nos panneaux solaires bénéficient d\'une garantie de performance linéaire exceptionnelle, et nos onduleurs et batteries lithium disposent de garanties constructeur solides pour vous assurer un investissement serein à long terme.'
+                ],
+                [
+                    'q' => 'Puis-je faire évoluer mon installation (ajouter des panneaux ou des batteries) plus tard ?',
+                    'a' => 'Absolument. Nos systèmes sont évolutifs. Si vos besoins augmentent (achat d\'un nouveau split, agrandissement de vos bureaux), vous pourrez connecter de nouveaux panneaux ou ajouter une armoire de stockage batterie supplémentaire très facilement sur votre onduleur existant.'
+                ],
+                [
+                    'q' => 'Les panneaux solaires demandent-ils beaucoup d\'entretien ?',
+                    'a' => 'Très peu. En Côte d\'Ivoire, le principal ennemi est la poussière (notamment pendant l\'harmattan). Il suffit de nettoyer les panneaux à l\'eau claire de temps en temps tôt le matin ou en fin de soirée pour enlever la couche de poussière et garantir une production maximale.'
+                ],
+                [
+                    'q' => 'Comment puis-je obtenir un devis final pour mon projet ?',
+                    'a' => 'C\'est très simple ! Parcourez l\'ensemble de nos kits pour estimer vos besoins. En fin de calcul, cliquez sur le bouton WhatsApp pour envoyer votre configuration à nos ingénieurs. Nous planifierons si nécessaire une visite technique pour chiffrer l\'installation complète.'
                 ],
             ];
             @endphp
