@@ -424,7 +424,7 @@
                 [
                     'num' => '#3', 'title' => 'Je reçois ma commande',
                     'icon' => '📦',
-                    'desc' => 'Après validation de votre commande, notre logistique prépare votre commande. Dès l\'expédition, vous recevrez un numéro de suivi.',
+                    'desc' => 'Après validation de votre commande, notre logistique prépare votre commande. Avant l\'expédition, vous recevez les frais de livraison, vous le confirmez avant toute expédition.',
                 ],
             ];
             @endphp
