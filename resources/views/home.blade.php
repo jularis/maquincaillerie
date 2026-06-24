@@ -17,7 +17,7 @@
 
         {{-- Title --}}
 {{-- 2 hero cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
             {{-- Card 1: Expert --}}
             <div class="md:col-span-1 bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center items-center text-center">
