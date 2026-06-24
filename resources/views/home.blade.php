@@ -20,7 +20,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
 
             {{-- Card 1: Expert --}}
-            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center">
+            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center items-center text-center">
                 <p class="text-3xl font-extrabold leading-tight mb-3">
                     Expert Photovoltaïque<br>et stockage depuis 2019
                 </p>
@@ -40,7 +40,7 @@
                         <div class="text-xs text-orange-100">Kit sur mesure avancé</div>
                     </div>
                 </div>
-                <p class="text-sm text-orange-100 leading-relaxed mb-5 flex-1">
+                <p class="text-sm text-orange-100 leading-relaxed mb-5 flex-1 text-center">
                     Devenez un expert du solaire ! Configurez votre kit sur mesure (marque, puissance, etc.) et recevez-le instantanément.
                 </p>
                 <a href="{{ route('configurateur') }}"
