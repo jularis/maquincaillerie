@@ -13,11 +13,11 @@
         <div class="absolute top-0 right-0 w-1/2 h-full" style="background: radial-gradient(ellipse at 80% 20%, #f59e0b 0%, transparent 60%)"></div>
     </div>
 
-    <div class="max-w-screen-xl mx-auto px-4 pt-12 pb-8 relative">
+    <div class="max-w-screen-xl mx-auto px-4 pt-12 pb-8 relative flex flex-col items-center">
 
         {{-- Title --}}
 {{-- 2 hero cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto w-full">
 
             {{-- Card 1: Expert --}}
             <div class="md:col-span-1 bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center items-center text-center">
