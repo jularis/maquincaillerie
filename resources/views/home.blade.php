@@ -30,25 +30,12 @@
             </div>
 
             {{-- Card 2: Configurateur avancé --}}
-            <div class="md:col-span-2 rounded-2xl p-6 shadow-xl flex flex-col relative overflow-hidden min-h-80"
-                 style="background-image: url('{{ asset('images/solaire-avenir.jpeg') }}'); background-size: cover; background-position: center;">
-                <div class="relative z-10 flex flex-col h-full">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center shrink-0">
-
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-                <div class="mb-3 flex-1 text-center">
-
-                </div>
+            <div class="md:col-span-2 rounded-2xl shadow-xl overflow-hidden relative">
+                <img src="{{ asset('images/solaire-avenir.jpeg') }}" alt="L'énergie solaire" class="w-full h-auto block">
                 <a href="{{ route('configurateur') }}"
-                   class="w-full text-center py-3 bg-orange text-white font-semibold rounded-xl hover:bg-orange/90 transition-colors text-sm">
+                   class="absolute bottom-4 left-4 right-4 text-center py-3 bg-orange text-white font-semibold rounded-xl hover:bg-orange/90 transition-colors text-sm">
                     🔆 Demandez un devis
                 </a>
-                </div>
             </div>
         </div>
 
