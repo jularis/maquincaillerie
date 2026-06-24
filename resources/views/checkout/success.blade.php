@@ -31,7 +31,7 @@
                             echo match($order->payment_method) {
                                 'cod'      => '🏪 Paiement espèce en magasin',
                                 'orange_money' => '🟠 Orange Money',
-                                'wave'         => '🌊 Wave',
+                                'wave'         => '🐧 Wave',
                                 'mtn_money'    => '🟡 MTN Money',
                                 'transfer' => '🏦 Virement bancaire',
                                 'check'    => '📝 Chèque',
@@ -63,7 +63,7 @@
         @php
             $mobileLabel = match($order->payment_method) {
                 'orange_money' => '🟠 Orange Money — ' . setting('site.orange_money_number'),
-                'wave'         => '🌊 Wave — ' . setting('site.wave_number'),
+                'wave'         => '🐧 Wave — ' . setting('site.wave_number'),
                 'mtn_money'    => '🟡 MTN Money — ' . setting('site.mtn_money_number'),
             };
         @endphp

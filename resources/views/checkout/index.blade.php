@@ -254,7 +254,7 @@
                                        :class="method === 'wave' ? 'bg-blue-50' : 'hover:bg-gray-50'">
                                     <input type="radio" name="payment_method" value="wave" x-model="method" class="text-blue-500">
                                     <div class="flex items-center gap-2 flex-1">
-                                        <span class="text-lg">🌊</span>
+                                        <span class="text-lg">🐧</span>
                                         <div>
                                             <div class="font-semibold text-sm">Wave</div>
                                             <div class="text-xs text-gray-500">{{ setting('site.wave_number') }}</div>

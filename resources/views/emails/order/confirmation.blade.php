@@ -69,7 +69,7 @@
           @switch($order->payment_method)
             @case('cod') 🏪 Paiement espèce en magasin @break
             @case('orange_money') 🟠 Orange Money @break
-            @case('wave') 🌊 Wave @break
+            @case('wave') 🐧 Wave @break
             @case('mtn_money') 🟡 MTN Money @break
             @case('transfer') 🏦 Virement bancaire @break
             @case('check') 📝 Chèque @break
@@ -137,7 +137,7 @@
     @php
         $mobileEmailLabel = match($order->payment_method) {
             'orange_money' => '🟠 Orange Money — ' . setting('site.orange_money_number'),
-            'wave'         => '🌊 Wave — ' . setting('site.wave_number'),
+            'wave'         => '🐧 Wave — ' . setting('site.wave_number'),
             'mtn_money'    => '🟡 MTN Money — ' . setting('site.mtn_money_number'),
         };
     @endphp
