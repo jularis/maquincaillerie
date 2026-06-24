@@ -349,7 +349,7 @@
                 <div class="mb-5">
                     <img src="{{ asset('images/logo.png') }}" alt="Ma Quincaillerie Solaire" style="height: 52px; width: auto;">
                 </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Experts photovoltaïque et stockage solaire depuis 2011. 50 000+ clients satisfaits en France et en Europe.</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Expert Photovoltaïque et stockage depuis 2019. 15 000+ clients satisfaits en Côte d'Ivoire.</p>
                 <div class="flex gap-2.5">
                     <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange transition-colors text-xs font-bold">YT</a>
                     <a href="#" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange transition-colors text-xs font-bold">f</a>
