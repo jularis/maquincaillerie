@@ -17,10 +17,10 @@
 
         {{-- Title --}}
 {{-- 2 hero cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
 
             {{-- Card 1: Expert --}}
-            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center items-center text-center">
+            <div class="md:col-span-1 bg-white/10 backdrop-blur rounded-2xl p-8 text-white shadow-xl flex flex-col justify-center items-center text-center">
                 <p class="text-3xl font-extrabold leading-tight mb-3">
                     Expert Photovoltaïque<br>et stockage depuis 2019
                 </p>
@@ -30,7 +30,7 @@
             </div>
 
             {{-- Card 2: Configurateur avancé --}}
-            <div class="rounded-2xl p-6 shadow-xl flex flex-col relative overflow-hidden min-h-80"
+            <div class="md:col-span-2 rounded-2xl p-6 shadow-xl flex flex-col relative overflow-hidden min-h-80"
                  style="background-image: url('{{ asset('images/solaire-avenir.jpeg') }}'); background-size: cover; background-position: center;">
                 <div class="relative z-10 flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-4">
