@@ -394,11 +394,30 @@
             <div>
                 <h4 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">Nos paiements</h4>
                 <div class="grid grid-cols-3 gap-2 mb-5">
-                    @foreach(['CB', 'Visa', 'MC', 'PayPal', 'Klarna', 'Virement'] as $pay)
-                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center">
-                        <span class="text-navy text-[10px] font-bold">{{ $pay }}</span>
+                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center gap-1">
+                        <span class="text-base">🏪</span>
+                        <span class="text-navy text-[9px] font-bold leading-tight">Espèces</span>
                     </div>
-                    @endforeach
+                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center gap-1">
+                        <span class="text-base">🟠</span>
+                        <span class="text-navy text-[9px] font-bold leading-tight">Orange Money</span>
+                    </div>
+                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center gap-1">
+                        <span class="text-base">🐧</span>
+                        <span class="text-navy text-[9px] font-bold leading-tight">Wave</span>
+                    </div>
+                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center gap-1">
+                        <span class="text-base">🟡</span>
+                        <span class="text-navy text-[9px] font-bold leading-tight">MTN Money</span>
+                    </div>
+                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center gap-1">
+                        <span class="text-base">🏦</span>
+                        <span class="text-navy text-[9px] font-bold leading-tight">Virement</span>
+                    </div>
+                    <div class="bg-white rounded px-2 py-1.5 flex items-center justify-center gap-1">
+                        <span class="text-base">📝</span>
+                        <span class="text-navy text-[9px] font-bold leading-tight">Chèque</span>
+                    </div>
                 </div>
                 <h4 class="font-bold mb-3 text-white text-sm uppercase tracking-wider">Nos garanties</h4>
                 <div class="space-y-2 text-sm text-gray-400">
