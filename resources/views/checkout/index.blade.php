@@ -275,7 +275,7 @@
                             </div>
                             <div x-show="['orange_money','wave','mtn_money'].includes(method)" x-cloak
                                  class="px-4 py-3 bg-yellow-50 border-t border-yellow-200 text-xs text-yellow-800">
-                                📲 Effectuez le paiement au numéro affiché puis envoyez la capture d'écran à <strong>{{ setting('site.email') }}</strong> en indiquant votre numéro de commande.
+                                📲 Merci de transmettre le reçu de paiement par WhatsApp au <strong>07 69 62 26 44</strong> en indiquant votre numéro de commande.
                             </div>
                         </div>
                         <div>
