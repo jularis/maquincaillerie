@@ -30,7 +30,7 @@
             </div>
 
             {{-- Card 2: Configurateur avancé --}}
-            <div class="rounded-2xl p-6 shadow-xl flex flex-col relative overflow-hidden"
+            <div class="rounded-2xl p-6 shadow-xl flex flex-col relative overflow-hidden min-h-80"
                  style="background-image: url('{{ asset('images/solaire-avenir.jpeg') }}'); background-size: cover; background-position: center;">
                 <div class="relative z-10 flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-4">
@@ -52,20 +52,7 @@
             </div>
         </div>
 
-        {{-- Bottom links --}}
-        <div class="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-blue-200">
-            <a href="{{ route('configurateur') }}" class="flex items-center gap-1.5 hover:text-white transition-colors font-medium">
-                📦 Configurateur de kit solaire
-            </a>
-            <span class="text-blue-400">|</span>
-            <a href="{{ route('products.index', ['category' => 'batteries']) }}" class="flex items-center gap-1.5 hover:text-white transition-colors font-medium">
-                🔋 Batteries de stockage
-            </a>
-            <span class="text-blue-400">|</span>
-            <a href="#contact" class="flex items-center gap-1.5 hover:text-white transition-colors font-medium">
-                💬 Échanger gratuitement avec nos experts
-            </a>
-        </div>
+
     </div>
 </section>
 
