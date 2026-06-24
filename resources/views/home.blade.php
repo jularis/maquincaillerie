@@ -35,27 +35,18 @@
                 <div class="relative z-10 flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center shrink-0">
-                        <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+
                     </div>
                     <div>
-                        <div class="font-bold">
-                            <span class="bg-navy text-white px-2 py-0.5 box-decoration-clone">Demandez un devis</span>
-                        </div>
-                        <div class="text-xs mt-1">
-                            <span class="bg-navy text-white px-2 py-0.5 box-decoration-clone">Kit sur mesure avancé</span>
-                        </div>
+
                     </div>
                 </div>
                 <div class="mb-3 flex-1 text-center">
-                    <p class="text-sm leading-8">
-                        <span class="bg-navy text-white px-2 py-1 box-decoration-clone">
-                            Devenez un expert du solaire ! Configurez votre kit sur mesure (marque, puissance, etc.) et recevez-le instantanément.
-                        </span>
-                    </p>
+
                 </div>
                 <a href="{{ route('configurateur') }}"
                    class="w-full text-center py-3 bg-orange text-white font-semibold rounded-xl hover:bg-orange/90 transition-colors text-sm">
-                    🔆 Sélectionnez un kit solaire
+                    🔆 Demandez un devis
                 </a>
                 </div>
             </div>
@@ -428,12 +419,12 @@
                 [
                     'num' => '#2', 'title' => 'Je valide ma commande',
                     'icon' => '✅',
-                    'desc' => 'Sélectionnez la quantité souhaitée et ajoutez-la dans votre panier. Créez votre compte. Cliquez sur « Mon panier ». À l\'étape 3 de votre panier, vous pouvez sélectionner votre mode de paiement : PayPal, carte de crédit, Klarna, virement bancaire.',
+                    'desc' => 'Sélectionnez la quantité souhaitée et ajoutez-la dans votre panier. Créez votre compte. Cliquez sur « Mon panier ». À l\'étape 3 de votre panier, vous pouvez sélectionner votre mode de paiement : espèces en magasin, Orange Money, Wave, MTN Money, virement bancaire ou chèque.',
                 ],
                 [
                     'num' => '#3', 'title' => 'Je reçois ma commande',
                     'icon' => '📦',
-                    'desc' => 'Après validation de votre commande, notre logistique prépare votre commande. Dès l\'expédition, vous recevrez un numéro de suivi. Veuillez vérifier votre matériel à la réception afin d\'assurer la qualité de notre service.',
+                    'desc' => 'Après validation de votre commande, notre logistique prépare votre commande. Dès l\'expédition, vous recevrez un numéro de suivi.',
                 ],
             ];
             @endphp

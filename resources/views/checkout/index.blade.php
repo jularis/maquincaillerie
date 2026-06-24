@@ -28,6 +28,13 @@
     <form action="{{ route('checkout.store') }}" method="POST"
           x-data="{
               selectedAddress: null,
+              customerType: '{{ old('customer_type', 'individual') }}',
+              subtotal: {{ $subtotal }},
+              get tax() { return this.customerType === 'company' ? Math.round(this.subtotal * 0.18 * 100) / 100 : 0; },
+              get total() { return this.subtotal + this.tax; },
+              formatFcfa(n) {
+                  return new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 0 }).format(Math.round(n)) + ' FCFA';
+              },
               fill(addr) {
                   this.selectedAddress = addr.id;
                   document.getElementById('f_first_name').value  = addr.first_name;
@@ -44,6 +51,38 @@
 
             {{-- Form --}}
             <div class="lg:col-span-2 space-y-6">
+
+                {{-- ===== Type de client ===== --}}
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
+                    <h2 class="font-bold text-gray-800 text-lg mb-4">👤 Type de client</h2>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
+                               :class="customerType === 'individual' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
+                            <input type="radio" name="customer_type" value="individual" x-model="customerType" class="text-navy">
+                            <div>
+                                <div class="font-semibold text-sm">🧑 Particulier</div>
+                                <div class="text-xs text-gray-500">Sans TVA</div>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors"
+                               :class="customerType === 'company' ? 'border-2 border-navy bg-navy/5' : 'border border-gray-200 hover:border-navy/30'">
+                            <input type="radio" name="customer_type" value="company" x-model="customerType" class="text-navy">
+                            <div>
+                                <div class="font-semibold text-sm">🏢 Entreprise</div>
+                                <div class="text-xs text-gray-500">TVA 18% applicable</div>
+                            </div>
+                        </label>
+                    </div>
+                    <div x-show="customerType === 'company'" x-cloak class="mt-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Nom de l'entreprise *</label>
+                        <input type="text" name="company_name"
+                               value="{{ old('company_name') }}"
+                               placeholder="Raison sociale…"
+                               :required="customerType === 'company'"
+                               class="input-field">
+                        @error('company_name') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
+                    </div>
+                </div>
 
                 {{-- ===== Adresses sauvegardées (si connecté et en a) ===== --}}
                 @if($savedAddresses->isNotEmpty())
@@ -310,9 +349,9 @@
                             <span>Sous-total HT</span>
                             <span>{{ fcfa($subtotal) }}</span>
                         </div>
-                        <div class="flex justify-between text-gray-600">
+                        <div class="flex justify-between text-gray-600" x-show="customerType === 'company'">
                             <span>TVA (18%)</span>
-                            <span>{{ fcfa($tax) }}</span>
+                            <span x-text="formatFcfa(tax)"></span>
                         </div>
                         <div class="flex justify-between text-gray-600">
                             <span>Livraison</span>
@@ -320,7 +359,7 @@
                         </div>
                         <div class="flex justify-between font-bold text-base pt-2 border-t border-gray-100">
                             <span>Total TTC</span>
-                            <span class="text-navy">{{ fcfa($total) }}</span>
+                            <span class="text-navy" x-text="formatFcfa(total)"></span>
                         </div>
                     </div>
                     <button type="submit" class="btn-primary w-full text-center text-base py-4 mt-5">

@@ -12,7 +12,7 @@ class Order extends Model
     protected $fillable = [
         'order_number', 'user_id', 'status', 'subtotal', 'tax', 'shipping', 'total',
         'first_name', 'last_name', 'email', 'phone', 'address', 'city', 'postal_code',
-        'country', 'payment_method', 'payment_status', 'notes', 'items',
+        'country', 'is_company', 'company_name', 'payment_method', 'payment_status', 'notes', 'items',
     ];
 
     protected $casts = ['items' => 'array'];

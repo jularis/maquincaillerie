@@ -42,6 +42,8 @@ class CheckoutController extends Controller
             'city'           => 'required|string|max:100',
             'postal_code'    => 'nullable|string|max:20',
             'country'        => 'nullable|string|max:3',
+            'customer_type'  => 'required|in:individual,company',
+            'company_name'   => 'required_if:customer_type,company|nullable|string|max:255',
             'payment_method' => 'required|in:cod,orange_money,wave,mtn_money,transfer,check',
         ]);
 
@@ -54,9 +56,10 @@ class CheckoutController extends Controller
 
         if ($cartItems->isEmpty()) return redirect()->route('cart.index');
 
-        $subtotal = $cartItems->sum(fn($i) => $i->product->price * $i->quantity);
-        $tax      = round($subtotal * 0.18, 2);
-        $shipping = 0;
+        $isCompany = $request->customer_type === 'company';
+        $subtotal  = $cartItems->sum(fn($i) => $i->product->price * $i->quantity);
+        $tax       = $isCompany ? round($subtotal * 0.18, 2) : 0;
+        $shipping  = 0;
 
         $order = \App\Models\Order::create([
             'order_number'   => 'CMD-' . strtoupper(uniqid()),
@@ -74,6 +77,8 @@ class CheckoutController extends Controller
             'city'           => $request->city,
             'postal_code'    => $request->postal_code,
             'country'        => $request->country ?? 'CI',
+            'is_company'     => $isCompany,
+            'company_name'   => $isCompany ? $request->company_name : null,
             'payment_method' => $request->payment_method ?? 'cod',
             'payment_status' => 'pending',
             'items'          => $cartItems->map(fn($i) => [
