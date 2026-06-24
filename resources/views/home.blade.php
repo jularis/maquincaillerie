@@ -368,11 +368,11 @@
 
             @php
             $steps = [
-                ['num'=>1, 'title'=>'Exploitez le simulateur avancé', 'desc'=>'Grâce à notre configurateur avancé, vous bénéficiez d\'un kit solaire sur mesure en fonction de la surface disponible. Notre simulateur est simple et offre une réponse immédiate.', 'icon'=>'🖥️'],
-                ['num'=>2, 'title'=>'Choisissez vos panneaux solaires', 'desc'=>'Avec le configurateur avancé, vous avez le choix de vos panneaux solaires. Sélectionnez le panneau qui vous convient en fonction de son prix et de son rendement.', 'icon'=>'☀️'],
-                ['num'=>3, 'title'=>'Sélectionnez vos onduleurs', 'desc'=>'Le configurateur va vous proposer uniquement les onduleurs compatibles avec la puissance des panneaux et la technologie choisie (avec ou sans batterie, mono ou triphasé).', 'icon'=>'⚡'],
-                ['num'=>4, 'title'=>'Ajoutez des batteries solaires', 'desc'=>'Si vous avez activé le stockage, vous allez pouvoir sélectionner votre batterie. Le configurateur vous propose uniquement des batteries compatibles avec l\'onduleur choisi.', 'icon'=>'🔋'],
-                ['num'=>5, 'title'=>'Profitez de nos installateurs', 'desc'=>'Grâce à nos partenaires certifiés RGE, nous vous proposons l\'installation de notre kit solaire. Aucun montant supplémentaire ne peut être demandé.', 'icon'=>'👷'],
+                ['num'=>1, 'title'=>'Choisissez votre kit solaire', 'desc'=>'Grâce à nos kits solaires déjà configurés, vous bénéficiez d\'un kit sur mesure en fonction de votre consommation actuelle. Dans le cas contraire, vous pouvez demander un devis sur mesure.', 'icon'=>'☀️'],
+                ['num'=>2, 'title'=>'Confirmez le kit solaire sélectionné', 'desc'=>'Contactez nos experts pour confirmer que le kit solaire sélectionné convient effectivement à votre installation.', 'icon'=>'✅'],
+                ['num'=>3, 'title'=>'Demandez une visite de site', 'desc'=>'La visite de site est obligatoire pour valider l\'adéquation entre le kit choisi et les caractéristiques de votre bâti. Des frais supplémentaires peuvent s\'ajouter (local technique, situation géographique, frais logistiques).', 'icon'=>'🏠'],
+                ['num'=>4, 'title'=>'Payez votre kit solaire', 'desc'=>'Le paiement s\'effectue selon la modalité suivante : 70% d\'avance, 30% après l\'installation.', 'icon'=>'💳'],
+                ['num'=>5, 'title'=>'Livraison et installation', 'desc'=>'Votre kit solaire est livré et installé suivant les normes en vigueur.', 'icon'=>'👷'],
             ];
             @endphp
 
