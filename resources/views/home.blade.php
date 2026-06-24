@@ -254,38 +254,6 @@
     </div>
 </section>
 
-{{-- ====================================================
-     SECTION 5 : TEXTE / EXPERTISE (comme Alma Solar)
-     ================================================== --}}
-<section class="py-14 bg-white">
-    <div class="max-w-screen-xl mx-auto px-4">
-        <div class="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-                <h2 class="section-title mb-5">Comment réaliser son installation solaire ?</h2>
-                <div class="prose prose-sm text-gray-600 space-y-4">
-                    <p>Le panneau solaire est la solution pour produire son électricité gratuitement. Notre site en ligne vous offre la possibilité de réaliser votre installation solaire. Que vous soyez particulier ou professionnel, vous obtenez l'offre de prix la moins chère du marché.</p>
-                    <p>Pour réaliser ce projet, vous devez commencer par mesurer votre toit. Vous avez la possibilité de le mesurer par vous-même ou bien d'utiliser Google Maps. Ce logiciel vous permet, à distance, de mesurer la longueur et largeur de votre toit.</p>
-                    <p>Ensuite, vous devez choisir avec ou sans stockage. En effet, les batteries solaires offrent une solution compétitive pour atteindre le 0 F CFA sur votre facture d'électricité. Les batteries photovoltaïques sont rechargées la journée et vous les déchargez la nuit.</p>
-                    <p>Pour faire le bon choix, nous pouvons vous guider sur les différents types d'onduleurs.</p>
-                </div>
-                <a href="{{ route('products.index') }}" class="btn-primary mt-6">
-                    Découvrir nos produits →
-                </a>
-            </div>
-            <div>
-                <h2 class="section-title mb-5">Combien ça coûte pour une maison de 100m² ?</h2>
-                <div class="prose prose-sm text-gray-600 space-y-4">
-                    <p>Il existe différentes configurations pour installer les panneaux solaires. Une maison de 100m² ne veut pas spécialement dire 100m² de toiture disponible. Tout d'abord, vous sélectionnez l'endroit où vous souhaitez installer vos modules photovoltaïques.</p>
-                    <p>Si vous êtes capable de réaliser l'installation vous-même, le tarif va diminuer d'environ 30 à 50% de son coût. Avec un installateur certifié RGE, le devis peut être plus élevé mais vous bénéficiez des aides de l'État.</p>
-                    <p>Pour une toiture de 30m², le coût sera seulement de 4 000 000 F CFA. Une surface de 50m², vous serez environ à 6 500 000 F CFA. Plus vous installez de puissance solaire, plus le prix F CFA/m² sera bas.</p>
-                </div>
-                <a href="{{ route('products.index', ['category' => 'kits-solaires']) }}" class="btn-outline mt-6">
-                    Voir les kits solaires →
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 
 {{-- ====================================================
      SECTION 6 : FAQ
