@@ -151,8 +151,8 @@
                 <div class="bg-primary-50 rounded-xl p-4 border border-primary-100">
                     <p class="text-sm font-semibold text-primary-800 mb-1">💬 Besoin d'un conseil ?</p>
                     <p class="text-xs text-primary-600">Nos experts sont disponibles du lun. au sam. de 9h à 18h</p>
-                    <a href="tel:+2252735958998" class="mt-2 inline-flex items-center gap-1 text-sm text-primary-700 font-semibold hover:text-primary-900">
-                        📞 +225 27 35 95 89 98
+                    <a href="tel:{{ preg_replace('/\s+/', '', setting('site.phone_1')) }}" class="mt-2 inline-flex items-center gap-1 text-sm text-primary-700 font-semibold hover:text-primary-900">
+                        📞 {{ setting('site.phone_1') }}
                     </a>
                 </div>
             </div>
