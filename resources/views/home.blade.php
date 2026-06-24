@@ -25,7 +25,7 @@
                     Expert Photovoltaïque<br>et stockage depuis 2019
                 </p>
                 <p class="text-4xl font-extrabold text-solar">
-                    15 000+ clients satisfaits
+                    15 000+ clients satisfaits en Côte d'Ivoire.
                 </p>
             </div>
 
