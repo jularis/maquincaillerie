@@ -30,23 +30,34 @@
             </div>
 
             {{-- Card 2: Configurateur avancé --}}
-            <div class="bg-orange rounded-2xl p-6 text-white shadow-xl flex flex-col">
+            <div class="rounded-2xl p-6 shadow-xl flex flex-col relative overflow-hidden"
+                 style="background-image: url('{{ asset('images/solaire-avenir.jpeg') }}'); background-size: cover; background-position: center;">
+                <div class="relative z-10 flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <div class="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center shrink-0">
+                        <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
                     <div>
-                        <div class="font-bold">Configurateur</div>
-                        <div class="text-xs text-orange-100">Kit sur mesure avancé</div>
+                        <div class="font-bold">
+                            <span class="bg-navy text-white px-2 py-0.5 box-decoration-clone">Demandez un devis</span>
+                        </div>
+                        <div class="text-xs mt-1">
+                            <span class="bg-navy text-white px-2 py-0.5 box-decoration-clone">Kit sur mesure avancé</span>
+                        </div>
                     </div>
                 </div>
-                <p class="text-sm text-orange-100 leading-relaxed mb-5 flex-1 text-center">
-                    Devenez un expert du solaire ! Configurez votre kit sur mesure (marque, puissance, etc.) et recevez-le instantanément.
-                </p>
+                <div class="mb-3 flex-1 text-center">
+                    <p class="text-sm leading-8">
+                        <span class="bg-navy text-white px-2 py-1 box-decoration-clone">
+                            Devenez un expert du solaire ! Configurez votre kit sur mesure (marque, puissance, etc.) et recevez-le instantanément.
+                        </span>
+                    </p>
+                </div>
                 <a href="{{ route('configurateur') }}"
-                   class="w-full text-center py-3 bg-white text-orange font-semibold rounded-xl hover:bg-orange-50 transition-colors text-sm">
+                   class="w-full text-center py-3 bg-orange text-white font-semibold rounded-xl hover:bg-orange/90 transition-colors text-sm">
                     🔆 Sélectionnez un kit solaire
                 </a>
+                </div>
             </div>
         </div>
 
