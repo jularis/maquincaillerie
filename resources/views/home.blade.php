@@ -53,7 +53,6 @@
             <h2 class="section-title">Nos catégories de produits solaires</h2>
             <p class="section-subtitle">Découvrez notre gamme complète de matériel photovoltaïque professionnel</p>
         </div>
-
         @php
         $catData = [
             'kits-solaires' => [
