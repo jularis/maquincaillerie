@@ -236,7 +236,7 @@
                         {{-- Paiement Mobile --}}
                         <div class="border border-gray-200 rounded-xl overflow-hidden">
                             <div class="px-4 py-3 bg-gray-50 border-b border-gray-200 text-sm font-semibold text-gray-700">
-                                📱 Paiement Mobile
+                                📱 Paiement mobile sans frais
                             </div>
                             <div class="divide-y divide-gray-100">
                                 <label class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors"
