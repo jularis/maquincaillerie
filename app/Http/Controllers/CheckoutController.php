@@ -101,7 +101,7 @@ class CheckoutController extends Controller
         }
 
         try {
-            Mail::to('commerciale@cleanenergyservices.net')->send(new OrderAdminNotification($order));
+            Mail::to(setting('site.email'))->send(new OrderAdminNotification($order));
         } catch (\Exception $e) {
             Log::warning('Email admin non envoyé : ' . $e->getMessage());
         }
