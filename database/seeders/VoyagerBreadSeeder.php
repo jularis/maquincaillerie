@@ -52,25 +52,27 @@ class VoyagerBreadSeeder extends Seeder
         $chk         = ['on' => 1, 'off' => 0];
 
         $rows = [
-            ['field' => 'id',                'type' => 'number',         'display_name' => 'ID',             'required' => 0, 'browse' => 1, 'read' => 0, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 1,  'details' => []],
-            ['field' => 'image',             'type' => 'image',          'display_name' => 'Image',          'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 2,  'details' => $imgDetails],
-            ['field' => 'name',              'type' => 'text',           'display_name' => 'Nom du produit', 'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 3,  'details' => []],
-            ['field' => 'slug',              'type' => 'text',           'display_name' => 'Slug URL',       'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 4,  'details' => $slugDetails],
-            ['field' => 'sku',               'type' => 'text',           'display_name' => 'Référence SKU',  'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 5,  'details' => []],
-            ['field' => 'category_id',       'type' => 'select_dropdown','display_name' => 'Catégorie',      'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 6,  'details' => $catRel],
-            ['field' => 'brand_id',          'type' => 'select_dropdown','display_name' => 'Marque',         'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 7,  'details' => $brandRel],
-            ['field' => 'price',             'type' => 'number',         'display_name' => 'Prix (F CFA)',   'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 8,  'details' => $numAny],
-            ['field' => 'old_price',         'type' => 'number',         'display_name' => 'Ancien prix',    'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 9,  'details' => $numAny],
-            ['field' => 'stock',             'type' => 'number',         'display_name' => 'Stock',          'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 10, 'details' => $numInt],
-            ['field' => 'short_description', 'type' => 'text_area',      'display_name' => 'Résumé',         'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 11, 'details' => []],
-            ['field' => 'description',       'type' => 'rich_text_box',  'display_name' => 'Description',    'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 12, 'details' => []],
-            ['field' => 'power',             'type' => 'number',         'display_name' => 'Puissance (W)',  'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 13, 'details' => $numAny],
-            ['field' => 'warranty',          'type' => 'text',           'display_name' => 'Garantie',              'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 14, 'details' => []],
-            ['field' => 'datasheet',         'type' => 'file',           'display_name' => 'Fiche technique (PDF)', 'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 15, 'details' => []],
-            ['field' => 'featured',          'type' => 'checkbox',       'display_name' => 'En vedette',            'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 16, 'details' => $chk],
-            ['field' => 'active',            'type' => 'checkbox',       'display_name' => 'Actif',                 'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 17, 'details' => $chk],
-            ['field' => 'created_at',        'type' => 'timestamp',      'display_name' => 'Créé le',               'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 18, 'details' => []],
-            ['field' => 'updated_at',        'type' => 'timestamp',      'display_name' => 'Modifié le',            'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 19, 'details' => []],
+            ['field' => 'id',                'type' => 'number',          'display_name' => 'ID',                    'required' => 0, 'browse' => 1, 'read' => 0, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 1,  'details' => []],
+            ['field' => 'image',             'type' => 'image',           'display_name' => 'Image principale',      'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 2,  'details' => $imgDetails],
+            ['field' => 'images',            'type' => 'multiple_images', 'display_name' => 'Galerie d\'images',     'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 3,  'details' => $imgDetails],
+            ['field' => 'name',              'type' => 'text',            'display_name' => 'Nom du produit',        'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 4,  'details' => []],
+            ['field' => 'slug',              'type' => 'text',            'display_name' => 'Slug URL',              'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 5,  'details' => $slugDetails],
+            ['field' => 'sku',               'type' => 'text',            'display_name' => 'Référence SKU',         'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 6,  'details' => []],
+            ['field' => 'category_id',       'type' => 'select_dropdown', 'display_name' => 'Catégorie',             'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 7,  'details' => $catRel],
+            ['field' => 'brand_id',          'type' => 'select_dropdown', 'display_name' => 'Marque',                'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 8,  'details' => $brandRel],
+            ['field' => 'price',             'type' => 'number',          'display_name' => 'Prix (F CFA)',          'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 9,  'details' => $numAny],
+            ['field' => 'old_price',         'type' => 'number',          'display_name' => 'Ancien prix',           'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 10, 'details' => $numAny],
+            ['field' => 'stock',             'type' => 'number',          'display_name' => 'Stock',                 'required' => 1, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 11, 'details' => $numInt],
+            ['field' => 'short_description', 'type' => 'text_area',       'display_name' => 'Résumé',                'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 12, 'details' => []],
+            ['field' => 'description',       'type' => 'rich_text_box',   'display_name' => 'Description',           'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 13, 'details' => []],
+            ['field' => 'power',             'type' => 'number',          'display_name' => 'Puissance (W)',         'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 14, 'details' => $numAny],
+            ['field' => 'warranty',          'type' => 'text',            'display_name' => 'Garantie',              'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 15, 'details' => []],
+            ['field' => 'datasheet',         'type' => 'file',            'display_name' => 'Fiche technique (PDF)', 'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 16, 'details' => []],
+            ['field' => 'specs',             'type' => 'rich_text_box',   'display_name' => 'Caractéristiques',      'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 17, 'details' => []],
+            ['field' => 'featured',          'type' => 'checkbox',        'display_name' => 'En vedette',            'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 18, 'details' => $chk],
+            ['field' => 'active',            'type' => 'checkbox',        'display_name' => 'Actif',                 'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 1, 'add' => 1, 'delete' => 0, 'order' => 19, 'details' => $chk],
+            ['field' => 'created_at',        'type' => 'timestamp',       'display_name' => 'Créé le',               'required' => 0, 'browse' => 1, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 20, 'details' => []],
+            ['field' => 'updated_at',        'type' => 'timestamp',       'display_name' => 'Modifié le',            'required' => 0, 'browse' => 0, 'read' => 1, 'edit' => 0, 'add' => 0, 'delete' => 0, 'order' => 21, 'details' => []],
         ];
 
         $this->syncDataRows($type, $rows);
@@ -293,6 +295,13 @@ class VoyagerBreadSeeder extends Seeder
     // ─────────────────────────────────────────────
     private function syncDataRows(DataType $type, array $rows): void
     {
+        $fields = array_column($rows, 'field');
+
+        // Supprimer les DataRows qui ne sont plus dans la liste (ex: ancien champ 'specs')
+        DataRow::where('data_type_id', $type->id)
+            ->whereNotIn('field', $fields)
+            ->delete();
+
         foreach ($rows as $row) {
             // Voyager's setDetailsAttribute calls json_encode() internally.
             // Empty array [] encodes to '[]' which json_decode returns as array → error.

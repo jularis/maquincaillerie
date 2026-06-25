@@ -20,20 +20,44 @@
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="grid lg:grid-cols-2 gap-0">
 
-            {{-- Image --}}
-            <div class="bg-gray-50 p-10 flex items-center justify-center relative min-h-96">
+            {{-- Galerie --}}
+            @php
+                $gallery = [];
+                if ($product->image) $gallery[] = $product->image;
+                foreach (json_decode($product->images ?? '[]', true) ?? [] as $img) { if ($img !== $product->image) $gallery[] = $img; }
+            @endphp
+            <div x-data="{ active: '{{ $gallery[0] ?? '' }}' }" class="bg-gray-50 flex flex-col gap-3 p-6 relative">
                 @if($product->old_price)
-                <div class="absolute top-4 left-4">
-                    <span class="badge bg-red-500 text-white text-sm px-3 py-1">-{{ $product->discount_percent }}%</span>
+                <div class="absolute top-4 left-4 z-10">
+                    <span class="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">-{{ $product->discount_percent }}%</span>
                 </div>
                 @endif
-                @if($product->image)
-                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" class="max-h-80 object-contain">
-                @else
-                    <div class="text-center">
-                        <div class="text-8xl mb-4">{{ $product->category->icon ?? '📦' }}</div>
-                        <span class="text-gray-400 text-sm">{{ $product->category->name }}</span>
-                    </div>
+
+                {{-- Image principale --}}
+                <div class="flex items-center justify-center min-h-72 rounded-xl overflow-hidden bg-white">
+                    @if($gallery)
+                        <img :src="'{{ asset('storage/') }}/' + active" alt="{{ $product->name }}"
+                             class="max-h-80 max-w-full object-contain transition-opacity duration-200">
+                    @else
+                        <div class="text-center py-10">
+                            <div class="text-8xl mb-4">{{ $product->category->icon ?? '📦' }}</div>
+                            <span class="text-gray-400 text-sm">{{ $product->category->name }}</span>
+                        </div>
+                    @endif
+                </div>
+
+                {{-- Miniatures --}}
+                @if(count($gallery) > 1)
+                <div class="flex gap-2 overflow-x-auto pb-1">
+                    @foreach($gallery as $img)
+                    <button type="button"
+                            @click="active = '{{ $img }}'"
+                            :class="active === '{{ $img }}' ? 'ring-2 ring-primary-600 ring-offset-1' : 'ring-1 ring-gray-200 opacity-70 hover:opacity-100'"
+                            class="shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white transition-all">
+                        <img src="{{ asset('storage/'.$img) }}" alt="{{ $product->name }}" class="w-full h-full object-contain p-1">
+                    </button>
+                    @endforeach
+                </div>
                 @endif
             </div>
 
@@ -170,19 +194,12 @@
             </div>
 
             <div x-show="tab === 'desc'" class="prose max-w-none text-gray-700 text-sm leading-relaxed">
-                {{ $product->description ?? $product->short_description }}
+                {!! $product->description ?? $product->short_description !!}
             </div>
 
             @if($product->specs)
-            <div x-show="tab === 'specs'" class="overflow-hidden rounded-lg border border-gray-200">
-                <table class="w-full text-sm">
-                    @foreach($product->specs as $key => $value)
-                    <tr class="{{ $loop->even ? 'bg-gray-50' : 'bg-white' }}">
-                        <td class="px-5 py-3 font-semibold text-gray-700 w-48">{{ $key }}</td>
-                        <td class="px-5 py-3 text-gray-600">{{ $value }}</td>
-                    </tr>
-                    @endforeach
-                </table>
+            <div x-show="tab === 'specs'" class="prose max-w-none text-gray-700 text-sm leading-relaxed">
+                {!! $product->specs !!}
             </div>
             @endif
         </div>
