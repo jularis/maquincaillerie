@@ -35,8 +35,9 @@
             <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
         </div>
         <div class="panel-body" style="padding-top:0;">
-            @if($row->type == 'select_dropdown' && property_exists($row->details, 'options') && !empty($row->details->options->{$dataTypeContent->{$row->field}}))
-                {{ $row->details->options->{$dataTypeContent->{$row->field}} }}
+            @php $fieldVal = $dataTypeContent->{$row->field}; @endphp
+            @if($row->type == 'select_dropdown' && property_exists($row->details, 'options') && !empty($row->details->options->{$fieldVal}))
+                {{ $row->details->options->{$fieldVal} }}
             @elseif($row->type == 'date' || $row->type == 'timestamp')
                 {{ $dataTypeContent->{$row->field} ? \Carbon\Carbon::parse($dataTypeContent->{$row->field})->format('d/m/Y à H:i') : '—' }}
             @elseif($row->type == 'rich_text_box')
