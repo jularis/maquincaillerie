@@ -70,6 +70,10 @@ return [
             'transport' => 'array',
         ],
 
+        'phpmail' => [
+            'transport' => 'phpmail',
+        ],
+
         'failover' => [
             'transport' => 'failover',
             'mailers' => [
