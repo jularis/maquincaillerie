@@ -157,10 +157,16 @@
                 </div>
 
                 {{-- Fiche technique --}}
-                @if($product->datasheet)
-                <a href="{{ asset('storage/app/public/' . $product->datasheet) }}"
+                @php
+                    $datasheetFiles = json_decode($product->datasheet ?? '[]', true);
+                    $datasheetFile  = is_array($datasheetFiles) && count($datasheetFiles) ? $datasheetFiles[0] : null;
+                    $datasheetUrl   = $datasheetFile ? asset('storage/app/public/' . $datasheetFile['download_link']) : null;
+                    $datasheetName  = $datasheetFile['original_name'] ?? 'Fiche technique';
+                @endphp
+                @if($datasheetUrl)
+                <a href="{{ $datasheetUrl }}"
                    target="_blank"
-                   download
+                   download="{{ $datasheetName }}"
                    class="flex items-center gap-3 w-full bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 hover:bg-red-100 transition-colors mb-6 font-semibold text-sm">
                     <svg class="w-6 h-6 shrink-0 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17l-4-4h2.5v-3h3v3H16l-4 4z"/>
