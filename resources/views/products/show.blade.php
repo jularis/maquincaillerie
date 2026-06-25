@@ -23,10 +23,14 @@
             {{-- Galerie --}}
             @php
                 $gallery = [];
-                if ($product->image) $gallery[] = $product->image;
-                foreach (json_decode($product->images ?? '[]', true) ?? [] as $img) { if ($img !== $product->image) $gallery[] = $img; }
+                if ($product->image) $gallery[] = asset('storage/'.$product->image);
+                foreach (json_decode($product->images ?? '[]', true) ?? [] as $img) {
+                    $url = asset('storage/'.$img);
+                    if ($url !== ($gallery[0] ?? null)) $gallery[] = $url;
+                }
+                $firstUrl = $gallery[0] ?? '';
             @endphp
-            <div x-data="{ active: '{{ $gallery[0] ?? '' }}' }" class="bg-gray-50 flex flex-col gap-3 p-6 relative">
+            <div x-data="{ active: @js($firstUrl) }" class="bg-gray-50 flex flex-col gap-3 p-6 relative">
                 @if($product->old_price)
                 <div class="absolute top-4 left-4 z-10">
                     <span class="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">-{{ $product->discount_percent }}%</span>
@@ -36,7 +40,7 @@
                 {{-- Image principale --}}
                 <div class="flex items-center justify-center min-h-72 rounded-xl overflow-hidden bg-white">
                     @if($gallery)
-                        <img :src="'{{ asset('storage/') }}/' + active" alt="{{ $product->name }}"
+                        <img :src="active" alt="{{ $product->name }}"
                              class="max-h-80 max-w-full object-contain transition-opacity duration-200">
                     @else
                         <div class="text-center py-10">
@@ -49,12 +53,12 @@
                 {{-- Miniatures --}}
                 @if(count($gallery) > 1)
                 <div class="flex gap-2 overflow-x-auto pb-1">
-                    @foreach($gallery as $img)
+                    @foreach($gallery as $url)
                     <button type="button"
-                            @click="active = '{{ $img }}'"
-                            :class="active === '{{ $img }}' ? 'ring-2 ring-primary-600 ring-offset-1' : 'ring-1 ring-gray-200 opacity-70 hover:opacity-100'"
+                            @click="active = @js($url)"
+                            :class="active === @js($url) ? 'ring-2 ring-primary-600 ring-offset-1' : 'ring-1 ring-gray-200 opacity-70 hover:opacity-100'"
                             class="shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white transition-all">
-                        <img src="{{ asset('storage/'.$img) }}" alt="{{ $product->name }}" class="w-full h-full object-contain p-1">
+                        <img src="{{ $url }}" alt="{{ $product->name }}" class="w-full h-full object-contain p-1">
                     </button>
                     @endforeach
                 </div>
