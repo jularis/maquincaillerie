@@ -123,7 +123,7 @@ class CheckoutController extends Controller
 
     private function sendWhatsApp(\App\Models\Order $order): void
     {
-        $phone  = config('services.callmebot.phone');
+        $phone  = preg_replace('/[^0-9]/', '', setting('site.phone_1') ?? '');
         $apikey = config('services.callmebot.apikey');
 
         if (empty($phone) || empty($apikey)) return;
