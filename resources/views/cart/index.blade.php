@@ -83,15 +83,11 @@
                         <span>Livraison</span>
                         <span>Au frais du client</span>
                     </div>
-                    <div class="flex justify-between text-gray-600">
-                        <span>TVA (18%)</span>
-                        <span>{{ fcfa($total * 0.18) }}</span>
-                    </div>
                 </div>
                 <div class="border-t border-gray-100 pt-4 mb-5">
                     <div class="flex justify-between font-bold text-lg">
-                        <span>Total TTC</span>
-                        <span class="text-primary-800">{{ fcfa($total * 1.18) }}</span>
+                        <span>Total</span>
+                        <span class="text-primary-800">{{ fcfa($total) }}</span>
                     </div>
                 </div>
                 <a href="{{ route('checkout.index') }}" class="btn-primary w-full text-center text-base py-3.5">
