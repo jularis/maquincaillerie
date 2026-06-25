@@ -2,7 +2,7 @@
     {{-- Image --}}
     <div class="relative overflow-hidden bg-gray-50 aspect-[4/3]">
         @if($product->image)
-            <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}"
+            <img src="{{ asset('storage/app/public/'.$product->image) }}" alt="{{ $product->name }}"
                  class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300">
         @else
             <div class="w-full h-full flex flex-col items-center justify-center">

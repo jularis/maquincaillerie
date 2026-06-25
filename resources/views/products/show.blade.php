@@ -23,9 +23,9 @@
             {{-- Galerie --}}
             @php
                 $gallery = [];
-                if ($product->image) $gallery[] = asset('storage/'.$product->image);
+                if ($product->image) $gallery[] = asset('storage/app/public/'.$product->image);
                 foreach (json_decode($product->images ?? '[]', true) ?? [] as $img) {
-                    $url = asset('storage/'.$img);
+                    $url = asset('storage/app/public/'.$img);
                     if ($url !== ($gallery[0] ?? null)) $gallery[] = $url;
                 }
                 $firstUrl = $gallery[0] ?? '';
@@ -158,7 +158,7 @@
 
                 {{-- Fiche technique --}}
                 @if($product->datasheet)
-                <a href="{{ asset('storage/' . $product->datasheet) }}"
+                <a href="{{ asset('storage/app/public/' . $product->datasheet) }}"
                    target="_blank"
                    download
                    class="flex items-center gap-3 w-full bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 hover:bg-red-100 transition-colors mb-6 font-semibold text-sm">

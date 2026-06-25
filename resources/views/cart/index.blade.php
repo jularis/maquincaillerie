@@ -23,7 +23,7 @@
                 {{-- Image --}}
                 <div class="w-24 h-24 bg-gray-50 rounded-lg flex items-center justify-center shrink-0 overflow-hidden">
                     @if($item->product->image)
-                        <img src="{{ asset('storage/'.$item->product->image) }}" alt="{{ $item->product->name }}" class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/app/public/'.$item->product->image) }}" alt="{{ $item->product->name }}" class="w-full h-full object-cover">
                     @else
                         <span class="text-4xl">{{ $item->product->category->icon ?? '📦' }}</span>
                     @endif
