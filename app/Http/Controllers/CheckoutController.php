@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\OrderAdminNotification;
 use App\Mail\OrderConfirmation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
@@ -95,13 +97,19 @@ class CheckoutController extends Controller
         try {
             Mail::to($order->email)->send(new OrderConfirmation($order));
         } catch (\Exception $e) {
-            \Log::warning('Email de confirmation non envoyé : ' . $e->getMessage());
+            Log::warning('Email de confirmation non envoyé : ' . $e->getMessage());
         }
 
         try {
             Mail::to('commerciale@cleanenergyservices.net')->send(new OrderAdminNotification($order));
         } catch (\Exception $e) {
-            \Log::warning('Email admin non envoyé : ' . $e->getMessage());
+            Log::warning('Email admin non envoyé : ' . $e->getMessage());
+        }
+
+        try {
+            $this->sendWhatsApp($order);
+        } catch (\Exception $e) {
+            Log::warning('WhatsApp non envoyé : ' . $e->getMessage());
         }
 
         return redirect()->route('checkout.success', $order->order_number);
@@ -111,5 +119,45 @@ class CheckoutController extends Controller
     {
         $order = \App\Models\Order::where('order_number', $orderNumber)->firstOrFail();
         return view('checkout.success', compact('order'));
+    }
+
+    private function sendWhatsApp(\App\Models\Order $order): void
+    {
+        $phone  = config('services.callmebot.phone');
+        $apikey = config('services.callmebot.apikey');
+
+        if (empty($phone) || empty($apikey)) return;
+
+        $items = collect($order->items)
+            ->map(fn($i) => $i['quantity'] . 'x ' . $i['name'])
+            ->implode(', ');
+
+        $paymentLabels = [
+            'cod'          => 'Espèce en magasin',
+            'orange_money' => 'Orange Money',
+            'wave'         => 'Wave',
+            'mtn_money'    => 'MTN Money',
+            'transfer'     => 'Virement bancaire',
+            'check'        => 'Chèque',
+        ];
+        $payment = $paymentLabels[$order->payment_method] ?? $order->payment_method;
+
+        $message = implode("\n", [
+            '🛒 *Nouvelle commande — ' . $order->order_number . '*',
+            '👤 ' . $order->first_name . ' ' . $order->last_name,
+            '📧 ' . $order->email,
+            $order->phone ? '📞 ' . $order->phone : null,
+            '📦 ' . $items,
+            '💰 Total : ' . number_format($order->total, 0, ',', ' ') . ' F CFA',
+            '💳 ' . $payment,
+            '🏙️ ' . $order->city,
+        ]);
+        $message = implode("\n", array_filter(explode("\n", $message)));
+
+        Http::get('https://api.callmebot.com/whatsapp.php', [
+            'phone'  => $phone,
+            'text'   => $message,
+            'apikey' => $apikey,
+        ]);
     }
 }

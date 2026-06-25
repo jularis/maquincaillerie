@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'callmebot' => [
+        'phone'  => env('CALLMEBOT_PHONE'),
+        'apikey' => env('CALLMEBOT_APIKEY'),
+    ],
+
 ];
