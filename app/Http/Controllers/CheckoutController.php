@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderAdminNotification;
 use App\Mail\OrderConfirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -94,8 +95,13 @@ class CheckoutController extends Controller
         try {
             Mail::to($order->email)->send(new OrderConfirmation($order));
         } catch (\Exception $e) {
-            // L'envoi échoue silencieusement pour ne pas bloquer la commande
             \Log::warning('Email de confirmation non envoyé : ' . $e->getMessage());
+        }
+
+        try {
+            Mail::to('commerciale@cleanenergyservices.net')->send(new OrderAdminNotification($order));
+        } catch (\Exception $e) {
+            \Log::warning('Email admin non envoyé : ' . $e->getMessage());
         }
 
         return redirect()->route('checkout.success', $order->order_number);
