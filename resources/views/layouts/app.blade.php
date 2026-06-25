@@ -7,7 +7,7 @@
     <meta name="cart-add-url" content="{{ route('cart.add') }}">
     <title>@yield('title', 'Ma Quincaillerie Solaire — Experts photovoltaïque et stockage solaire')</title>
     <meta name="description" content="@yield('meta_description', 'Spécialiste en panneaux solaires, onduleurs, batteries et kits solaires depuis 2011. 50 000+ clients satisfaits.')">
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('public/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -101,7 +101,7 @@
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center shrink-0">
-                <img src="{{ asset('images/logo.png') }}" alt="Ma Quincaillerie Solaire" style="height: 52px; width: auto;">
+                <img src="{{ asset('public/images/logo.png') }}" alt="Ma Quincaillerie Solaire" style="height: 52px; width: auto;">
             </a>
 
             {{-- Search --}}
@@ -343,7 +343,7 @@
             {{-- Brand --}}
             <div>
                 <div class="mb-5">
-                    <img src="{{ asset('images/logo.png') }}" alt="Ma Quincaillerie Solaire" style="height: 52px; width: auto;">
+                    <img src="{{ asset('public/images/logo.png') }}" alt="Ma Quincaillerie Solaire" style="height: 52px; width: auto;">
                 </div>
                 <p class="text-gray-400 text-sm leading-relaxed mb-4">Expert Photovoltaïque et stockage depuis 2019. 15 000+ clients satisfaits en Côte d'Ivoire.</p>
                 <div class="flex gap-2.5">
