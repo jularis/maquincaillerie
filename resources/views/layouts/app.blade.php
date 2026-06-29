@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @stack('styles')
     <style>
       [x-cloak] { display: none !important; }
       .mega-menu-dropdown { display: none; }
@@ -442,6 +443,7 @@
 </footer>
 
 <script src="{{ mix('js/app.js') }}"></script>
+@stack('scripts')
 
 {{-- Toast --}}
 <div x-data x-show="$store.toast.show" x-cloak

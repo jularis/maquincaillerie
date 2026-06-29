@@ -6,6 +6,116 @@
 @section('content')
 
 {{-- ====================================================
+     VITRINE : PRODUIT EN VEDETTE (grand format)
+     ================================================== --}}
+<section class="bg-gradient-to-br from-navy via-navy-light to-[#1e3a7a] text-white relative overflow-hidden"
+    x-data="{ current: 0, total: {{ $featuredProducts->count() }}, timer: null }"
+    x-init="timer = setInterval(() => current = (current + 1) % total, 4000)"
+    @mouseenter="clearInterval(timer)"
+    @mouseleave="timer = setInterval(() => current = (current + 1) % total, 4000)" style="height: 500px;">
+
+    {{-- Fond décoratif --}}
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10" style="background: radial-gradient(ellipse at 80% 20%, #f59e0b 0%, transparent 60%)"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 opacity-5" style="background: radial-gradient(circle, #fff 0%, transparent 70%)"></div>
+    </div>
+
+    <div class="max-w-screen-xl mx-auto px-4 h-full flex flex-col relative">
+
+        {{-- Piste glissante --}}
+        <div class="flex-1 overflow-hidden">
+            <div class="flex h-full transition-transform duration-500 ease-in-out"
+                 :style="`transform: translateX(-${current * 100}%)`">
+
+                @foreach($featuredProducts as $product)
+                <div class="w-full h-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-6">
+
+                    {{-- Image --}}
+                    <div class="h-full flex items-center justify-center">
+                        <div class="relative bg-white/10 backdrop-blur rounded-3xl p-8 w-full h-full flex items-center justify-center">
+                            @if($product->image)
+                                <img src="{{ asset('storage/app/public/'.$product->image) }}"
+                                     alt="{{ $product->name }}"
+                                     class="max-w-full max-h-full object-contain drop-shadow-2xl">
+                            @else
+                                <span class="text-9xl opacity-40">{{ $product->category->icon ?? '📦' }}</span>
+                            @endif
+                            @if($product->old_price)
+                            <span class="absolute top-4 left-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">-{{ $product->discount_percent }}%</span>
+                            @endif
+                            <span class="absolute top-4 right-4 bg-orange text-white text-sm font-bold px-3 py-1 rounded-full">⭐ Vedette</span>
+                        </div>
+                    </div>
+
+                    {{-- Infos --}}
+                    <div class="flex flex-col gap-4 justify-center">
+                        <div class="flex items-center gap-3 flex-wrap">
+                            @if($product->category)
+                            <span class="text-sm font-semibold bg-white/10 px-3 py-1 rounded-full">{{ $product->category->icon ?? '' }} {{ $product->category->name }}</span>
+                            @endif
+                            @if($product->brand)
+                            <span class="text-sm text-white/60">{{ $product->brand->name }}</span>
+                            @endif
+                        </div>
+
+                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">{{ $product->name }}</h3>
+
+                        @if($product->power)
+                        <div class="flex items-center gap-2 text-base text-white/70">
+                            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            {{ number_format($product->power) }} W
+                        </div>
+                        @endif
+
+                        @if($product->stock > 5)
+                        <div class="flex items-center gap-2 text-base text-green-300"><span class="w-2.5 h-2.5 bg-green-400 rounded-full"></span> En stock</div>
+                        @elseif($product->stock > 0)
+                        <div class="flex items-center gap-2 text-base text-orange"><span class="w-2.5 h-2.5 bg-orange rounded-full"></span> Stock limité ({{ $product->stock }})</div>
+                        @else
+                        <div class="flex items-center gap-2 text-base text-red-300"><span class="w-2.5 h-2.5 bg-red-400 rounded-full"></span> Rupture de stock</div>
+                        @endif
+
+                        <div class="flex items-end gap-4">
+                            <span class="text-4xl md:text-5xl font-extrabold text-solar">{{ fcfa($product->price) }}</span>
+                            @if($product->old_price)
+                            <span class="text-lg text-white/40 line-through mb-1">{{ fcfa($product->old_price) }}</span>
+                            @endif
+                        </div>
+
+                        <a href="{{ route('products.show', $product->slug) }}"
+                           class="self-start inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 rounded-2xl transition-colors text-base">
+                            Voir le produit
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
+        {{-- Navigation --}}
+        <div class="flex items-center justify-between py-3">
+            <button @click="current = (current - 1 + total) % total" class="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="flex items-center gap-2">
+                @foreach($featuredProducts as $product)
+                <button @click="current = {{ $loop->index }}"
+                        :class="current === {{ $loop->index }} ? 'bg-orange w-6' : 'bg-white/30 w-2'"
+                        class="h-2 rounded-full transition-all duration-300"></button>
+                @endforeach
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-sm text-white/50 font-mono" x-text="(current + 1) + ' / {{ $featuredProducts->count() }}'"></span>
+                <button @click="current = (current + 1) % total" class="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- ====================================================
      SECTION 1 : HERO BANNER
      ================================================== --}}
 <section class="bg-gradient-to-br from-navy via-navy-light to-[#2a4890] text-white relative overflow-hidden">
