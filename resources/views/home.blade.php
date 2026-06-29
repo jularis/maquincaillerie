@@ -83,8 +83,8 @@
                         </div>
 
                         <a href="{{ route('products.show', $product->slug) }}"
-                           class="self-start inline-flex items-center gap-1.5 bg-orange hover:bg-orange/90 text-white font-bold px-5 py-2.5 rounded-xl transition-colors text-sm">
-                            Voir
+                           class="self-start inline-flex items-center gap-1.5 bg-orange hover:bg-orange/90 text-white font-bold px-4 py-2.5 rounded-xl transition-colors text-sm">
+                            Voir le produit
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
