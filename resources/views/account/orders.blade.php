@@ -52,7 +52,7 @@
                         <div class="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4 px-6 py-5 items-center hover:bg-gray-50 transition-colors">
                             <div class="col-span-2 md:col-span-3">
                                 <p class="text-sm font-bold text-navy">{{ $order->order_number }}</p>
-                                <p class="text-xs text-gray-400 mt-0.5">{{ count($order->items) }} article{{ count($order->items) > 1 ? 's' : '' }}</p>
+                                <p class="text-xs text-gray-400 mt-0.5">{{ count($order->items_decoded) }} article{{ count($order->items_decoded) > 1 ? 's' : '' }}</p>
                             </div>
                             <div class="col-span-1 md:col-span-3 text-sm text-gray-500">
                                 {{ $order->created_at->format('d/m/Y') }}<br>
@@ -83,7 +83,7 @@
                                     <div>
                                         <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Articles</p>
                                         <div class="space-y-2">
-                                            @foreach($order->items as $item)
+                                            @foreach($order->items_decoded as $item)
                                             <div class="flex items-center justify-between text-sm">
                                                 <span class="text-gray-700 font-medium">{{ $item['name'] }}</span>
                                                 <span class="text-gray-500">× {{ $item['quantity'] }}</span>

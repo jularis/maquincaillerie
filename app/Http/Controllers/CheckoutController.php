@@ -128,7 +128,7 @@ class CheckoutController extends Controller
 
         if (empty($phone) || empty($apikey)) return;
 
-        $items = collect($order->items)
+        $items = collect($order->items_decoded)
             ->map(fn($i) => $i['quantity'] . 'x ' . $i['name'])
             ->implode(', ');
 

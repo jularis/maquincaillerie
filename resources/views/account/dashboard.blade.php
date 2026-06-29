@@ -116,7 +116,7 @@
                         <div class="flex items-center justify-between px-6 py-4">
                             <div>
                                 <p class="text-sm font-bold text-navy">{{ $order->order_number }}</p>
-                                <p class="text-xs text-gray-400 mt-0.5">{{ $order->created_at->format('d/m/Y') }} · {{ count($order->items) }} article{{ count($order->items) > 1 ? 's' : '' }}</p>
+                                <p class="text-xs text-gray-400 mt-0.5">{{ $order->created_at->format('d/m/Y') }} · {{ count($order->items_decoded) }} article{{ count($order->items_decoded) > 1 ? 's' : '' }}</p>
                             </div>
                             <div class="text-right">
                                 <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full {{ $st['class'] }} mb-1">{{ $st['label'] }}</span>

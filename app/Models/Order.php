@@ -15,7 +15,12 @@ class Order extends Model
         'country', 'is_company', 'company_name', 'payment_method', 'payment_status', 'notes', 'items',
     ];
 
-    protected $casts = ['items' => 'array'];
+    protected $casts = [];
+
+    public function getItemsDecodedAttribute(): array
+    {
+        return json_decode($this->attributes['items'] ?? '[]', true) ?? [];
+    }
 
     public function user()
     {

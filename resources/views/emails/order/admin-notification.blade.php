@@ -99,7 +99,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($order->items as $item)
+        @foreach($order->items_decoded as $item)
         <tr>
           <td style="font-weight:600;color:#1f2937;">{{ $item['name'] }}</td>
           <td style="text-align:center;color:#6b7280;">{{ $item['quantity'] }}</td>
