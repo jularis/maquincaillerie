@@ -745,18 +745,22 @@
 
 @if($popupEnabled && $popupImage)
 <div id="popup-overlay"
-     class="fixed inset-0 z-[9000] flex items-center justify-center bg-black/60 backdrop-blur-sm"
-     style="display:none !important;"
+     class="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+     style="display:none !important; z-index:99999;"
      x-data x-cloak>
 
     <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden"
          style="width:800px; max-width:95vw; height:600px; max-height:90vh;"
          @click.stop>
 
-        {{-- Bouton fermer --}}
+        {{-- Croix de fermeture --}}
         <button id="popup-close"
-                class="absolute top-3 right-3 z-10 w-9 h-9 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors text-lg font-bold leading-none">
-            ×
+                style="position:absolute; top:12px; right:12px; z-index:100000; width:36px; height:36px; background:rgba(0,0,0,0.65); border:2px solid rgba(255,255,255,0.8); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer;"
+                onmouseover="this.style.background='rgba(0,0,0,0.9)'"
+                onmouseout="this.style.background='rgba(0,0,0,0.65)'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
         </button>
 
         {{-- Image --}}
