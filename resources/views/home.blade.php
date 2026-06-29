@@ -31,7 +31,7 @@
 
             {{-- Card 2: Configurateur avancé --}}
             <div class="md:col-span-2 rounded-2xl shadow-xl overflow-hidden flex flex-col">
-                <img src="{{ asset('public/images/solaire-avenir.jpeg') }}" alt="L'énergie solaire" class="w-full h-auto block">
+                <img src="{{ asset('public/images/installation-solaire.jpeg') }}" alt="L'énergie solaire" class="w-full h-auto block">
                 <a href="{{ route('configurateur') }}"
                    class="w-full text-center py-3 bg-orange text-white font-semibold hover:bg-orange/90 transition-colors text-sm">
                     🔆 Demandez un devis
