@@ -84,12 +84,12 @@ class CheckoutController extends Controller
             'company_name'   => $isCompany ? $request->company_name : null,
             'payment_method' => $request->payment_method ?? 'cod',
             'payment_status' => 'pending',
-            'items'          => $cartItems->map(fn($i) => [
+            'items'          => json_encode($cartItems->map(fn($i) => [
                 'product_id' => $i->product_id,
                 'name'       => $i->product->name,
                 'price'      => $i->product->price,
                 'quantity'   => $i->quantity,
-            ])->toArray(),
+            ])->toArray()),
         ]);
 
         $cartItems->each->delete();
