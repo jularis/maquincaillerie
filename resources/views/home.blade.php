@@ -315,12 +315,53 @@
             </a>
         </div>
 
-        {{-- Grid --}}
         @if($featuredProducts->isNotEmpty())
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach($featuredProducts as $product)
-                @include('partials.product-card', ['product' => $product])
-            @endforeach
+        @php $batches = $featuredProducts->chunk(8); @endphp
+        <div x-data="{
+                current: 0,
+                total: {{ $batches->count() }},
+                timer: null
+             }"
+             x-init="timer = setInterval(() => current = (current + 1) % total, 5000)"
+             @mouseenter="clearInterval(timer)"
+             @mouseleave="timer = setInterval(() => current = (current + 1) % total, 5000)">
+
+            {{-- Piste glissante --}}
+            <div class="overflow-hidden">
+                <div class="flex transition-transform duration-500 ease-in-out"
+                     :style="`transform: translateX(-${current * 100}%)`">
+
+                    @foreach($batches as $batch)
+                    <div class="w-full shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        @foreach($batch as $product)
+                            @include('partials.product-card', ['product' => $product])
+                        @endforeach
+                    </div>
+                    @endforeach
+
+                </div>
+            </div>
+
+            {{-- Navigation --}}
+            <div class="flex items-center justify-between mt-8">
+                <button @click="current = (current - 1 + total) % total"
+                        class="w-10 h-10 rounded-full border border-navy/20 flex items-center justify-center hover:bg-navy hover:text-white transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+
+                <div class="flex items-center gap-2">
+                    @foreach($batches as $i => $batch)
+                    <button @click="current = {{ $i }}"
+                            :class="current === {{ $i }} ? 'bg-navy w-6' : 'bg-gray-300 w-2'"
+                            class="h-2 rounded-full transition-all duration-300"></button>
+                    @endforeach
+                </div>
+
+                <button @click="current = (current + 1) % total"
+                        class="w-10 h-10 rounded-full border border-navy/20 flex items-center justify-center hover:bg-navy hover:text-white transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
         </div>
         @else
         <div class="text-center py-16 text-gray-400">
@@ -328,11 +369,6 @@
             <p class="font-medium">Aucun produit en vedette pour le moment.</p>
         </div>
         @endif
-
-        {{-- CTA mobile --}}
-        <div class="text-center mt-8 sm:hidden">
-            <a href="{{ route('products.index') }}" class="btn-outline">Voir tous les produits →</a>
-        </div>
 
     </div>
 </section>
