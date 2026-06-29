@@ -9,12 +9,14 @@ class DevisController extends Controller
     public function send(Request $request)
     {
         $data = $request->validate([
-            'nom'      => 'required|string|max:100',
-            'ville'    => 'required|string|max:100',
-            'type'     => 'required|in:Monophasé,Triphasé',
-            'amperage' => 'required|string|max:10',
-            'facture'  => 'required|numeric|min:0',
-            'toiture'  => 'required|in:Dalle,Tôle,Tuile',
+            'nom'       => 'required|string|max:100',
+            'telephone' => 'required|string|max:30',
+            'email'     => 'required|email|max:150',
+            'ville'     => 'required|string|max:100',
+            'type'      => 'required|in:Monophasé,Triphasé',
+            'amperage'  => 'required|string|max:10',
+            'facture'   => 'required|numeric|min:0',
+            'toiture'   => 'required|in:Dalle,Tôle,Tuile',
         ]);
 
         $to      = setting('site.email') ?: 'commerciale@cleanenergyservices.net';
@@ -22,7 +24,9 @@ class DevisController extends Controller
         $facture = number_format((float) $data['facture'], 0, ',', ' ');
 
         $body  = "Nouvelle demande de devis reçue depuis le site.\r\n\r\n";
-        $body .= "Nom & Prénom   : {$data['nom']}\r\n";
+        $body .= "Nom complet    : {$data['nom']}\r\n";
+        $body .= "Téléphone      : {$data['telephone']}\r\n";
+        $body .= "Email          : {$data['email']}\r\n";
         $body .= "Ville          : {$data['ville']}\r\n";
         $body .= "Type           : {$data['type']}\r\n";
         $body .= "Ampérage       : {$data['amperage']}A\r\n";

@@ -25,6 +25,8 @@
         <div class="max-w-2xl mx-auto"
              x-data="{
                  nom: '',
+                 telephone: '',
+                 email: '',
                  ville: '',
                  type: '',
                  amperage: '',
@@ -34,11 +36,13 @@
                  loading: false,
                  errorMsg: '',
                  get isComplete() {
-                     return this.nom && this.ville && this.type && this.amperage && this.facture && this.toiture;
+                     return this.nom && this.telephone && this.email && this.ville && this.type && this.amperage && this.facture && this.toiture;
                  },
                  get whatsappUrl() {
                      const msg = 'Bonjour, je souhaite un devis solaire.%0A%0A'
                          + 'Nom : ' + encodeURIComponent(this.nom) + '%0A'
+                         + 'Téléphone : ' + encodeURIComponent(this.telephone) + '%0A'
+                         + 'Email : ' + encodeURIComponent(this.email) + '%0A'
                          + 'Ville : ' + encodeURIComponent(this.ville) + '%0A'
                          + 'Type : ' + encodeURIComponent(this.type) + '%0A'
                          + 'Ampérage : ' + this.amperage + 'A%0A'
@@ -59,6 +63,8 @@
                              },
                              body: JSON.stringify({
                                  nom: this.nom,
+                                 telephone: this.telephone,
+                                 email: this.email,
                                  ville: this.ville,
                                  type: this.type,
                                  amperage: this.amperage,
@@ -83,9 +89,26 @@
 
                 {{-- Nom & Prénom --}}
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nom & Prénom *</label>
-                    <input type="text" x-model="nom" placeholder="Ex : Kouamé Jean"
-                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:border-navy focus:outline-none transition-colors bg-white">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nom complet *</label>
+                    <input type="text" x-model="nom" placeholder="Ex : Kouamé Jean" required
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:border-navy focus:outline-none transition-colors bg-white"
+                        :class="nom === '' ? '' : 'border-green-400'">
+                </div>
+
+                {{-- Téléphone & Email --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Numéro de téléphone *</label>
+                        <input type="tel" x-model="telephone" placeholder="+225 07 00 00 00 00" required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:border-navy focus:outline-none transition-colors bg-white"
+                            :class="telephone === '' ? '' : 'border-green-400'">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Adresse email *</label>
+                        <input type="email" x-model="email" placeholder="exemple@email.com" required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:border-navy focus:outline-none transition-colors bg-white"
+                            :class="email === '' ? '' : 'border-green-400'">
+                    </div>
                 </div>
 
                 {{-- Ville --}}

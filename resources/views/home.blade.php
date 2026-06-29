@@ -388,7 +388,7 @@
             $faqs = [
                 [
                     'q' => 'Que signifie le « kWh » inscrit sur le nom de vos kits solaires ?',
-                    'a' => 'Le kWh (Kilowatt-heure) inscrit sur le nom de nos kits désigne la production d\'énergie journalière moyenne que le champ de panneaux solaires va produire en une journée en Côte d\'Ivoire. Cela devrait être approximativement égale à votre consommation journalière d\'électricité. Cela vous permet de choisir directement votre kit en fonction de votre consommation habituelle. Si vous avez une ancienne facture, vous trouverez la valeur de votre consommation en 60 jours. Si vous divisez par 60, vous aurez votre consommation journalière moyenne.'
+                    'a' => 'Le kWh (Kilowatt-heure) inscrit sur le nom de nos kits désigne la capacité d\'énergie stockée dans la batterie pour vos besoins en soirée ou en cas de mauvais ensoleillement. Les kits sont conçus de telle sorte à stocker les 2/3 de la production journalière dans les batteries en journée et les 1/3 sont directement utilisés pour alimenter les équipements en journée, permettant ainsi de répondre à la demande des clients pendant les périodes de forte consommation, généralement la nuit.'
                 ],
                 [
                     'q' => 'Comment savoir si je dois choisir une installation Monophasée ou Triphasée ?',
