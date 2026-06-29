@@ -733,4 +733,76 @@
 }
 </style>
 
+{{-- ====================================================
+     POPUP PROMOTIONNEL (géré depuis l'administration)
+     ================================================== --}}
+@php
+    $popupEnabled = setting('popup.enabled');
+    $popupImage   = setting('popup.image');
+    $popupLink    = setting('popup.link');
+    $popupFreq    = setting('popup.frequency', 'once');
+@endphp
+
+@if($popupEnabled && $popupImage)
+<div id="popup-overlay"
+     class="fixed inset-0 z-[9000] flex items-center justify-center bg-black/60 backdrop-blur-sm"
+     style="display:none !important;"
+     x-data x-cloak>
+
+    <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden"
+         style="width:800px; max-width:95vw; height:600px; max-height:90vh;"
+         @click.stop>
+
+        {{-- Bouton fermer --}}
+        <button id="popup-close"
+                class="absolute top-3 right-3 z-10 w-9 h-9 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors text-lg font-bold leading-none">
+            ×
+        </button>
+
+        {{-- Image --}}
+        @if($popupLink)
+        <a href="{{ $popupLink }}" target="_blank" class="block w-full h-full">
+            <img src="{{ asset('storage/app/public/' . $popupImage) }}"
+                 alt="Promotion"
+                 class="w-full h-full object-cover">
+        </a>
+        @else
+        <img src="{{ asset('storage/app/public/' . $popupImage) }}"
+             alt="Promotion"
+             class="w-full h-full object-cover">
+        @endif
+    </div>
+</div>
+
+<script>
+(function () {
+    var freq    = @json($popupFreq);
+    var storKey = freq === 'always' ? null : 'popup_seen_{{ date('Y-m-d') }}';
+
+    if (storKey && localStorage.getItem(storKey)) return;
+
+    var overlay = document.getElementById('popup-overlay');
+    overlay.style.removeProperty('display');
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.3s ease';
+    setTimeout(function () { overlay.style.opacity = '1'; }, 50);
+
+    if (storKey) localStorage.setItem(storKey, '1');
+
+    function close() {
+        overlay.style.opacity = '0';
+        setTimeout(function () { overlay.style.display = 'none'; }, 300);
+    }
+
+    document.getElementById('popup-close').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) close();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+    });
+})();
+</script>
+@endif
+
 @endsection
