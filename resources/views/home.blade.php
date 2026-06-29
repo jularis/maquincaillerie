@@ -28,10 +28,10 @@
                  :style="`transform: translateX(-${current * 100}%)`">
 
                 @foreach($featuredProducts as $product)
-                <div class="w-full h-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-6">
+                <div class="w-full h-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-start pt-6 pb-2">
 
                     {{-- Image --}}
-                    <div class="h-full flex items-center justify-center">
+                    <div class="h-full flex items-start justify-center">
                         <div class="relative bg-white/10 backdrop-blur rounded-3xl p-8 w-full h-full flex items-center justify-center">
                             @if($product->image)
                                 <img src="{{ asset('storage/app/public/'.$product->image) }}"
@@ -48,7 +48,7 @@
                     </div>
 
                     {{-- Infos --}}
-                    <div class="flex flex-col gap-4 justify-center">
+                    <div class="flex flex-col gap-3 justify-start">
                         <div class="flex items-center gap-3 flex-wrap">
                             @if($product->category)
                             <span class="text-sm font-semibold bg-white/10 px-3 py-1 rounded-full">{{ $product->category->icon ?? '' }} {{ $product->category->name }}</span>
@@ -58,7 +58,7 @@
                             @endif
                         </div>
 
-                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">{{ $product->name }}</h3>
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight">{{ $product->name }}</h3>
 
                         @if($product->power)
                         <div class="flex items-center gap-2 text-base text-white/70">
@@ -76,7 +76,7 @@
                         @endif
 
                         <div class="flex items-end gap-4">
-                            <span class="text-4xl md:text-5xl font-extrabold text-solar">{{ fcfa($product->price) }}</span>
+                            <span class="text-3xl md:text-4xl font-extrabold text-solar">{{ fcfa($product->price) }}</span>
                             @if($product->old_price)
                             <span class="text-lg text-white/40 line-through mb-1">{{ fcfa($product->old_price) }}</span>
                             @endif
