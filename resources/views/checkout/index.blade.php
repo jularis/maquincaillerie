@@ -180,10 +180,11 @@
                             @error('email') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Téléphone</label>
-                            <input id="f_phone" type="tel" name="phone"
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Téléphone *</label>
+                            <input id="f_phone" type="tel" name="phone" required
                                 value="{{ old('phone') }}"
-                                placeholder="+225 07 00 00 00 00" class="input-field">
+                                placeholder="+225 07 00 00 00 00" class="input-field @error('phone') border-red-500 @enderror">
+                            @error('phone') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                         </div>
                         <div class="sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1.5">Adresse *</label>
