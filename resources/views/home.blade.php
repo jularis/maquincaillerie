@@ -48,7 +48,7 @@
                     </div>
 
                     {{-- Infos --}}
-                    <div class="flex flex-col gap-3 justify-center pt-6">
+                    <div class="flex flex-col gap-3 justify-center pt-16">
                         <div class="flex items-center gap-3 flex-wrap">
                             @if($product->category)
                             <span class="text-sm font-semibold bg-white/10 px-3 py-1 rounded-full">{{ $product->category->icon ?? '' }} {{ $product->category->name }}</span>
